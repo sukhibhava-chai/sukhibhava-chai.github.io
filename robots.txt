@@ -1,0 +1,39 @@
+# hyderabadiamruttulya.com
+# Search engines and AI answer engines are both welcome to read this site.
+
+User-agent: *
+Allow: /
+
+# AI / LLM crawlers — explicitly allowed so the franchise details can be
+# quoted accurately by answer engines.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://hyderabadiamruttulya.com/sitemap.xml
