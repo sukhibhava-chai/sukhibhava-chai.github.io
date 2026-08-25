@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Affordable Chai Franchise in India | Hyderabadi Amruttulya</title>
 
-<meta name="description" content="Start an affordable chai franchise with Hyderabadi Amruttulya: chai made with jaggery, not refined sugar. 40%–50% profit margin, 100–200 sq ft, low franchise cost. Call +91 98499 98779.">
+<meta name="description" content="Start a low-cost chai franchise with Hyderabadi Amruttulya — jaggery instead of refined sugar, 40%–50% margin, 100–200 sq ft. WhatsApp +91 98499 98779.">
 <meta name="keywords" content="chai franchise, affordable chai franchise, cheap chai franchise, low cost chai franchise, chai franchise cost, tea franchise India, tea stall franchise, chai franchise Hyderabad, chai franchise Telangana, chai franchise Andhra Pradesh, jaggery chai, Hyderabadi Amruttulya, amruttulya franchise">
 <link rel="canonical" href="https://hyderabadiamruttulya.com/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -51,7 +51,16 @@ tailwind.config = {
         body:    ['Karla', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
         deva:    ['"Noto Sans Devanagari"', 'system-ui', 'sans-serif']
       },
-      maxWidth: { shell: '1180px' }
+      /* The shell is a CSS variable so one media-query-free clamp can widen
+         every section together on 1440s, 4K monitors and television. */
+      maxWidth: { shell: 'var(--shell, 1180px)' },
+      screens: {
+        /* Above 2xl (1536px) the page is being read from further away, not
+           closer: a 4K monitor at desk distance and a TV across a room both
+           want more measure and more scale, never more columns. */
+        '3xl': '1800px',
+        '4xl': '2400px'
+      }
     }
   }
 }
@@ -66,6 +75,41 @@ tailwind.config = {
   html { scroll-behavior: smooth; }
   body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
+  /* Fluid foundation --------------------------------------------
+     Every size on the page is expressed in rem, so a single root-size
+     ramp carries type, spacing, controls and radii from a 320px phone
+     to a television. Below 1536px the root stays at the browser
+     default, so phone and laptop rendering is untouched; above it the
+     page grows because the reader is further away, not closer. A TV is
+     a big screen viewed from three metres — it needs a bigger page,
+     never more columns. */
+  :root {
+    --shell:  clamp(1180px, 62vw + 240px, 2080px);
+    --gutter: clamp(1.25rem, .95rem + 1.4vw, 2.5rem);
+  }
+  @media (min-width: 1536px) {
+    :root { font-size: clamp(16px, .55vw + 7.55px, 22px); }
+  }
+  /* A screen this wide with no pointer is a television, and a television is
+     read from across a room rather than from a desk. Everything takes
+     another step up; nothing about the layout changes. */
+  @media (min-width: 2200px) and (hover: none) {
+    :root { font-size: clamp(22px, .95vw, 30px); }
+  }
+
+  /* Browser surfaces we did not draw, drawn anyway ---------------- */
+  ::selection { background: #E6A93C; color: #10201E; }
+  html {
+    caret-color: #8A4B2A;
+    scrollbar-width: thin;
+    scrollbar-color: #C08A3E rgba(16,32,30,.10);
+  }
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: rgba(16,32,30,.08); }
+  ::-webkit-scrollbar-thumb { background: #C08A3E; border-radius: 999px; border: 3px solid #F4EFE4; }
+  ::-webkit-scrollbar-thumb:hover { background: #E6A93C; }
+  a { text-underline-offset: .18em; text-decoration-thickness: from-font; }
+
   /* Focus ------------------------------------------------------- */
   a:focus-visible, button:focus-visible, input:focus-visible,
   textarea:focus-visible, select:focus-visible, summary:focus-visible,
@@ -75,19 +119,19 @@ tailwind.config = {
     border-radius: 6px;
   }
 
-  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+  .eyebrow { font-size: .6875rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
 
   /* The signboard ----------------------------------------------- */
   .signboard {
     position: relative;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     transform: rotate(-1deg);
     background:
       radial-gradient(125% 125% at 10% 6%, #1B5563 0%, #123B45 46%, #0C2429 100%);
     box-shadow:
-      inset 0 0 0 2px rgba(192,138,62,.9),
-      inset 0 0 0 10px rgba(244,239,228,.07),
-      0 30px 70px -30px rgba(0,0,0,.75);
+      inset 0 0 0 .125rem rgba(192,138,62,.9),
+      inset 0 0 0 .625rem rgba(244,239,228,.07),
+      0 1.875rem 4.375rem -1.875rem rgba(0,0,0,.75);
   }
   .signboard::after {
     content: "";
@@ -103,12 +147,70 @@ tailwind.config = {
   .signboard > * { position: relative; z-index: 1; }
   .rivet {
     position: absolute;
-    width: 12px; height: 12px;
+    width: .75rem; height: .75rem;
     border-radius: 50%;
     background: radial-gradient(circle at 32% 28%, #E9C588 0%, #C08A3E 55%, #6E4A1D 100%);
     box-shadow: 0 1px 3px rgba(0,0,0,.6);
     z-index: 2;
   }
+  .rivet--tl { top: .875rem; left: .875rem; }
+  .rivet--tr { top: .875rem; right: .875rem; }
+  .rivet--bl { bottom: .875rem; left: .875rem; }
+  .rivet--br { bottom: .875rem; right: .875rem; }
+
+  /* Hero ---------------------------------------------------------
+     Sized against the viewport rather than against a breakpoint list,
+     so there is no width at which the composition is merely "the
+     desktop one, stretched". */
+  .hero {
+    display: grid;
+    align-content: center;
+    padding-top:    clamp(5.5rem, 4.5rem + 3.2vw, 8.75rem);
+    padding-bottom: clamp(3rem, 2rem + 2.9vw, 5.75rem);
+  }
+  /* Fill the first screen only where there is a screen worth filling.
+     Never in mobile landscape, where 100svh is mostly browser chrome. */
+  @media (min-width: 1024px) and (min-height: 640px) {
+    .hero { min-height: min(100svh, 66rem); }
+  }
+
+  .hero-grid {
+    display: grid;
+    align-items: center;
+    gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  }
+  @media (min-width: 1024px) {
+    .hero-grid { grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); }
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: clamp(15rem, 32vw, 42rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(clamp(60px, 5.5vw, 130px));
+    pointer-events: none;
+  }
+  .hero-glow--leaf { top: 14%;    left:  -17vw; background: rgba(62,107,74,.22); }
+  .hero-glow--chai { bottom: -14%; right: -13vw; background: rgba(138,75,42,.26); }
+
+  .hero-title    { font-size: clamp(2.05rem, 1.4rem + 2.95vw, 4.5rem);  line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
+  .hero-subtitle { font-size: clamp(1rem, .82rem + .88vw, 1.6rem);      line-height: 1.28; letter-spacing: -.015em; }
+  .hero-lede     { font-size: clamp(.95rem, .9rem + .26vw, 1.15rem);    line-height: 1.62; max-width: 46ch; text-wrap: pretty; }
+
+  /* Hero photograph ----------------------------------------------
+     Fluid height rather than three fixed ones, so the frame keeps its
+     proportion from a phone up to a television. */
+  .hero-photo {
+    position: relative;
+    height: clamp(15rem, 8rem + 20vw, 33rem);
+    overflow: hidden;
+    border-radius: 1.25rem;
+    box-shadow: inset 0 0 0 1px rgba(244,239,228,.15), 0 1.875rem 4.375rem -1.875rem rgba(0,0,0,.8);
+  }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+  .proof-strip img { height: clamp(3.75rem, 1.8rem + 5.6vw, 6.5rem); }
 
   /* Steam ------------------------------------------------------- */
   @keyframes rise {
@@ -139,20 +241,12 @@ tailwind.config = {
     .tilt:hover { transform: perspective(900px) rotateX(3deg) translateY(-5px); }
   }
 
-  /* Menu dotted leaders ----------------------------------------- */
-  .leader { flex: 1 1 auto; border-bottom: 1px dotted rgba(16,32,30,.32); margin: 0 .6rem; transform: translateY(-.3rem); min-width: 1.5rem; }
-
   /* FAQ --------------------------------------------------------- */
   details > summary { list-style: none; cursor: pointer; }
   details > summary::-webkit-details-marker { display: none; }
   details > summary::marker { content: ""; }
   .faq-plus { transition: transform .25s ease; }
   details[open] .faq-plus { transform: rotate(45deg); }
-
-  /* Form errors ------------------------------------------------- */
-  .field-error { display: none; color: #8A4B2A; font-size: .8125rem; font-weight: 700; margin-top: .35rem; }
-  .field-error.is-visible { display: block; }
-  .is-invalid { border-color: #8A4B2A !important; background-color: #FFF6F1 !important; }
 
   /* Graceful image degradation ---------------------------------- */
   .img-frame { background: linear-gradient(140deg, #1B5563 0%, #123B45 55%, #10201E 100%); }
@@ -166,12 +260,7 @@ tailwind.config = {
   }
 
   /* Anchor targets clear the fixed nav --------------------------- */
-  section[id], div[id] { scroll-margin-top: 88px; }
-
-  /* Form notice -------------------------------------------------- */
-  .form-notice { margin-top: 1.25rem; border-radius: .75rem; padding: .75rem 1rem; font-size: 14px; line-height: 1.6; }
-  .notice-error { background: rgba(138,75,42,.10); color: #6F3A1F; box-shadow: inset 0 0 0 1px rgba(138,75,42,.3); }
-  .notice-warn  { background: rgba(18,59,69,.08);  color: #0E2E36; box-shadow: inset 0 0 0 1px rgba(18,59,69,.25); }
+  section[id], div[id] { scroll-margin-top: 5.5rem; }
 
   /* Reduced motion ---------------------------------------------- */
   @media (prefers-reduced-motion: reduce) {
@@ -192,7 +281,9 @@ tailwind.config = {
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://hyderabadiamruttulya.com/#business",
   "name": "Hyderabadi Amruttulya",
+  "slogan": "Equal to nectar",
   "description": "A chai franchise that sweetens every cup with jaggery instead of refined sugar, using 100% natural products sourced from rural India.",
   "url": "https://hyderabadiamruttulya.com/",
   "image": "https://hyderabadiamruttulya.com/images/logo.jpeg",
@@ -204,8 +295,26 @@ tailwind.config = {
     { "@type": "State", "name": "Andhra Pradesh" }
   ],
   "sameAs": ["https://www.instagram.com/hydamruttulya/"]
-  /* CLIENT TO SUPPLY: postal address, geo coordinates, opening hours and
-     sameAs social profile URLs. Do not publish invented values here. */
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Hyderabadi Amruttulya chai franchise",
+  "serviceType": "Chai franchise partnership",
+  "url": "https://hyderabadiamruttulya.com/#franchise",
+  "description": "A low-cost chai franchise partnership for first-time small-business owners. An outlet runs as a 100-200 sq ft counter serving chai sweetened with jaggery instead of refined sugar, on a 40%-50% profit margin.",
+  "provider": { "@id": "https://hyderabadiamruttulya.com/#business" },
+  "areaServed": [
+    { "@type": "State", "name": "Telangana" },
+    { "@type": "State", "name": "Andhra Pradesh" }
+  ],
+  "audience": {
+    "@type": "BusinessAudience",
+    "name": "First-time small-business owners"
+  }
 }
 </script>
 </head>
@@ -221,12 +330,12 @@ tailwind.config = {
         <img src="./images/logo.jpeg" alt="Hyderabadi Amruttulya logo" width="999" height="999"
              class="h-10 w-10 rounded-full object-cover ring-2 ring-brass/70 sm:h-11 sm:w-11">
         <span class="font-display leading-[1.05]">
-          <span class="block text-[14px] font-extrabold tracking-[-.02em] text-steam sm:text-[15px]">Hyderabadi</span>
+          <span class="block text-[0.875rem] font-extrabold tracking-[-.02em] text-steam sm:text-[0.9375rem]">Hyderabadi</span>
           <span class="eyebrow block text-jaggery">Amruttulya</span>
         </span>
       </a>
 
-      <ul class="hidden items-center gap-7 text-[14px] font-semibold text-steam/85 lg:flex">
+      <ul class="hidden items-center gap-7 text-[0.875rem] font-semibold text-steam/85 lg:flex">
         <li><a href="#jaggery" class="transition-colors hover:text-jaggery">Why jaggery</a></li>
         <li><a href="#mission" class="transition-colors hover:text-jaggery">Mission</a></li>
         <li><a href="#franchise" class="transition-colors hover:text-jaggery">Franchise</a></li>
@@ -236,7 +345,7 @@ tailwind.config = {
 
       <div class="flex items-center gap-2">
         <a href="tel:+919849998779"
-           class="inline-flex items-center gap-2 rounded-full bg-jaggery px-4 py-2.5 font-display text-[13px] font-extrabold tracking-[-.01em] text-ink transition-colors hover:bg-steam sm:px-5 sm:text-[14px]">
+           class="inline-flex items-center gap-2 rounded-full bg-jaggery px-4 py-2.5 font-display text-[0.8125rem] font-extrabold tracking-[-.01em] text-ink transition-colors hover:bg-steam sm:px-5 sm:text-[0.875rem]">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>Call us</span>
         </a>
@@ -257,7 +366,7 @@ tailwind.config = {
       <span class="flex items-center gap-3">
         <img src="./images/logo.jpeg" alt="" width="999" height="999" class="h-10 w-10 rounded-full object-cover ring-2 ring-brass/70">
         <span class="font-display leading-[1.05]">
-          <span class="block text-[14px] font-extrabold text-steam">Hyderabadi</span>
+          <span class="block text-[0.875rem] font-extrabold text-steam">Hyderabadi</span>
           <span class="eyebrow block text-jaggery">Amruttulya</span>
         </span>
       </span>
@@ -269,7 +378,7 @@ tailwind.config = {
     </div>
 
     <nav aria-label="Mobile" class="mt-10 flex-1">
-      <ul class="space-y-1 font-display text-[26px] font-extrabold tracking-[-.03em] text-steam">
+      <ul class="space-y-1 font-display text-[1.625rem] font-extrabold tracking-[-.03em] text-steam">
         <li><a href="#jaggery" class="drawer-link block border-b border-steam/10 py-4">Why jaggery</a></li>
         <li><a href="#mission" class="drawer-link block border-b border-steam/10 py-4">Mission</a></li>
         <li><a href="#franchise" class="drawer-link block border-b border-steam/10 py-4">Franchise</a></li>
@@ -279,8 +388,8 @@ tailwind.config = {
     </nav>
 
     <div class="grid gap-3 pb-8 sm:grid-cols-2">
-      <a href="#enquiry" class="drawer-link inline-flex items-center justify-center rounded-full bg-jaggery px-6 py-3.5 font-display text-[15px] font-extrabold text-ink">Enquire about a franchise</a>
-      <a href="tel:+919849998779" class="inline-flex items-center justify-center rounded-full border border-steam/35 px-6 py-3.5 font-display text-[15px] font-extrabold text-steam">+91 98499 98779</a>
+      <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20" target="_blank" rel="noopener" class="drawer-link inline-flex items-center justify-center gap-2.5 rounded-full bg-jaggery px-6 py-3.5 font-display text-[0.9375rem] font-extrabold text-ink"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>Enquire about a franchise</a>
+      <a href="tel:+919849998779" class="inline-flex items-center justify-center rounded-full border border-steam/35 px-6 py-3.5 font-display text-[0.9375rem] font-extrabold text-steam">+91 98499 98779</a>
     </div>
   </div>
 </div>
@@ -288,51 +397,53 @@ tailwind.config = {
 <main id="main">
 
 <!-- ================= HERO ================= -->
-<section id="top" class="relative overflow-hidden bg-ink pb-14 pt-24 sm:pt-28 lg:pb-20 lg:pt-32">
-  <div class="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-leaf/25 blur-[90px]" aria-hidden="true"></div>
-  <div class="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-chai/25 blur-[100px]" aria-hidden="true"></div>
+<section id="top" class="hero relative overflow-hidden bg-ink">
+  <div class="hero-glow hero-glow--leaf" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow--chai" aria-hidden="true"></div>
 
-  <div class="relative mx-auto grid max-w-shell items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.04fr,.96fr] lg:gap-14">
+  <div class="hero-grid relative mx-auto w-full max-w-shell px-5 sm:px-8 3xl:px-12">
 
     <!-- The signboard -->
-    <div class="signboard px-6 py-9 sm:px-10 sm:py-12">
-      <span class="rivet" style="top:14px;left:14px"></span>
-      <span class="rivet" style="top:14px;right:14px"></span>
-      <span class="rivet" style="bottom:14px;left:14px"></span>
-      <span class="rivet" style="bottom:14px;right:14px"></span>
+    <div class="signboard px-6 py-9 sm:px-10 sm:py-12 3xl:px-14 3xl:py-16">
+      <span class="rivet rivet--tl"></span>
+      <span class="rivet rivet--tr"></span>
+      <span class="rivet rivet--bl"></span>
+      <span class="rivet rivet--br"></span>
 
       <p class="flex flex-wrap items-center gap-2.5">
-        <span class="font-deva text-[15px] text-jaggery">अमृततुल्य</span>
+        <span class="font-deva text-[0.9375rem] text-jaggery">अमृततुल्य</span>
         <span class="h-px w-6 bg-brass" aria-hidden="true"></span>
         <span class="eyebrow text-jaggery">equal to nectar</span>
       </p>
 
-      <h1 class="mt-5 font-display text-[clamp(2rem,7.4vw,3.75rem)] font-extrabold leading-[1.02] tracking-[-.03em] text-steam">
-        Discover healthier chai
-        <span class="mt-2.5 block text-[clamp(1rem,3.1vw,1.45rem)] font-semibold tracking-[-.01em] text-steam/75">with Hyderabadi Amruttulya</span>
+      <h1 class="hero-title mt-5 font-display font-extrabold text-steam">
+        An affordable chai franchise
+        <span class="hero-subtitle mt-2.5 block font-semibold text-steam/75">with Hyderabadi Amruttulya</span>
       </h1>
 
-      <p class="mt-6 max-w-[48ch] text-[15px] leading-relaxed text-steam/90 sm:text-base">
+      <p class="hero-lede mt-6 text-steam/90">
         We use jaggery instead of regular sugar in every cup. 100% natural, unrefined, and delivered
         straight from the heart of rural India — crafted by farmers using traditional methods.
       </p>
 
       <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href="#enquiry" class="inline-flex items-center justify-center gap-2 rounded-full bg-jaggery px-6 py-3.5 font-display text-[15px] font-extrabold tracking-[-.01em] text-ink transition-colors hover:bg-steam">
+        <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20" target="_blank" rel="noopener"
+           class="inline-flex items-center justify-center gap-2.5 rounded-full bg-jaggery px-6 py-3.5 font-display text-[0.9375rem] font-extrabold tracking-[-.01em] text-ink transition-colors hover:bg-steam">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
           Enquire about a franchise
         </a>
-        <a href="tel:+919849998779" class="inline-flex items-center justify-center gap-2 rounded-full border border-steam/35 px-6 py-3.5 font-display text-[15px] font-extrabold tracking-[-.01em] text-steam transition-colors hover:border-jaggery hover:text-jaggery">
+        <a href="tel:+919849998779" class="inline-flex items-center justify-center gap-2 rounded-full border border-steam/35 px-6 py-3.5 font-display text-[0.9375rem] font-extrabold tracking-[-.01em] text-steam transition-colors hover:border-jaggery hover:text-jaggery">
           +91 98499 98779
         </a>
       </div>
     </div>
 
     <!-- Photograph + steam -->
-    <div class="relative">
-      <div class="img-frame relative overflow-hidden rounded-2xl shadow-[0_30px_70px_-30px_rgba(0,0,0,.8)] ring-1 ring-steam/15">
+    <div>
+      <div class="hero-photo img-frame">
         <img src="./images/chai-4.jpeg" width="1280" height="1280"
              alt="A branded Hyderabadi Amruttulya kulhad cup of chai, printed with Chai, Coffee, Snacks and Shakes"
-             class="h-[280px] w-full object-cover object-center sm:h-[380px] lg:h-[420px]">
+             fetchpriority="high" decoding="async">
         <svg class="steam pointer-events-none absolute left-1/2 top-4 h-28 w-24 -translate-x-1/2 sm:h-36 sm:w-28" viewBox="0 0 96 112" aria-hidden="true" focusable="false">
           <path d="M24 106C12 86 36 76 24 56 14 40 30 28 24 12"/>
           <path d="M48 108C36 88 60 76 48 54 38 36 54 26 48 8"/>
@@ -340,21 +451,21 @@ tailwind.config = {
         </svg>
       </div>
 
-      <ul class="mt-3 grid grid-cols-3 gap-3">
+      <ul class="proof-strip mt-6 grid grid-cols-3 gap-3 sm:gap-4">
         <li class="img-frame overflow-hidden rounded-xl ring-1 ring-steam/10">
-          <img src="./images/chai-lg.jpeg" width="750" height="750" loading="lazy"
-               alt="A Hyderabadi Amruttulya outlet busy with customers at night"
-               class="h-20 w-full object-cover sm:h-24">
+          <img src="./images/chai-lg.jpeg" width="750" height="750" loading="lazy" decoding="async"
+               alt="A Hyderabadi Amruttulya chai franchise outlet busy with customers at night"
+               class="w-full object-cover">
         </li>
         <li class="img-frame overflow-hidden rounded-xl ring-1 ring-steam/10">
-          <img src="./images/chai-2.jpeg" width="1280" height="1280" loading="lazy"
+          <img src="./images/chai-2.jpeg" width="1280" height="1280" loading="lazy" decoding="async"
                alt="The Hyderabadi Amruttulya signboard, with a Charminar in place of the H"
-               class="h-20 w-full object-cover sm:h-24">
+               class="w-full object-cover">
         </li>
         <li class="img-frame overflow-hidden rounded-xl ring-1 ring-steam/10">
-          <img src="./images/chai-3.jpeg" width="1280" height="1280" loading="lazy"
-               alt="A newly opened outlet decorated with marigold garlands, customers seated outside"
-               class="h-20 w-full object-cover sm:h-24">
+          <img src="./images/chai-3.jpeg" width="1280" height="1280" loading="lazy" decoding="async"
+               alt="A newly opened chai franchise outlet decorated with marigold garlands, customers seated outside"
+               class="w-full object-cover">
         </li>
       </ul>
     </div>
@@ -364,7 +475,7 @@ tailwind.config = {
 <!-- ================= MARQUEE ================= -->
 <div class="border-y-2 border-brass/70 bg-enamel py-3.5 overflow-hidden" aria-hidden="true">
   <div class="marquee-track">
-    <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-[13px] font-extrabold uppercase tracking-[.14em] text-steam/85 sm:text-[14px]">
+    <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-[0.8125rem] font-extrabold uppercase tracking-[.14em] text-steam/85 sm:text-[0.875rem]">
       <span>Jaggery, not refined sugar</span><span class="text-jaggery">&#10022;</span>
       <span>100% natural</span><span class="text-jaggery">&#10022;</span>
       <span>From the heart of rural India</span><span class="text-jaggery">&#10022;</span>
@@ -372,7 +483,7 @@ tailwind.config = {
       <span>40%&ndash;50% profit margin</span><span class="text-jaggery">&#10022;</span>
       <span>100&ndash;200 sq ft</span><span class="text-jaggery">&#10022;</span>
     </div>
-    <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-[13px] font-extrabold uppercase tracking-[.14em] text-steam/85 sm:text-[14px]">
+    <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-[0.8125rem] font-extrabold uppercase tracking-[.14em] text-steam/85 sm:text-[0.875rem]">
       <span>Jaggery, not refined sugar</span><span class="text-jaggery">&#10022;</span>
       <span>100% natural</span><span class="text-jaggery">&#10022;</span>
       <span>From the heart of rural India</span><span class="text-jaggery">&#10022;</span>
@@ -390,38 +501,35 @@ tailwind.config = {
     <h2 id="jaggery-h" class="mt-4 max-w-[20ch] font-display text-[clamp(1.75rem,5.4vw,3rem)] font-extrabold leading-[1.02] tracking-[-.03em] text-ink">
       Every other chai stall reaches for the sugar jar.
     </h2>
-    <p class="mt-5 max-w-[62ch] text-[15px] leading-relaxed text-ink/75 sm:text-base">
+    <p class="mt-5 max-w-[62ch] text-[0.9375rem] leading-relaxed text-ink/75 sm:text-base">
       We don't. Every cup of Hyderabadi Amruttulya chai is sweetened with jaggery instead of regular
       sugar. It is the single thing that separates this chai franchise from the tea stall two doors
       down &mdash; and the thing customers taste first.
     </p>
 
     <ol class="mt-10 grid gap-4 sm:mt-12 md:grid-cols-3">
-      <!-- CLIENT TO SUPPLY: the exact jaggery variety, region and process used, so card 01 can
-           describe the product precisely. Keep it descriptive; do not add health claims. -->
       <li class="tilt rounded-2xl bg-ink p-7 ring-1 ring-ink/10">
-        <span class="font-display text-[34px] font-extrabold leading-none tracking-[-.04em] text-brass">01</span>
-        <h3 class="mt-4 font-display text-[19px] font-extrabold tracking-[-.02em] text-steam">
+        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.04em] text-brass">01</span>
+        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.02em] text-steam">
           Unrefined by design
-          <span class="ml-1 align-middle text-[10px] font-bold uppercase tracking-[.18em] text-jaggery">[Verify]</span>
         </h3>
-        <p class="mt-3 text-[15px] leading-relaxed text-steam/80">
+        <p class="mt-3 text-[0.9375rem] leading-relaxed text-steam/80">
           Jaggery is cane juice boiled down and set &mdash; not stripped white. It goes into the pot in
           place of refined sugar, in every cup we serve.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-ink p-7 ring-1 ring-ink/10">
-        <span class="font-display text-[34px] font-extrabold leading-none tracking-[-.04em] text-brass">02</span>
-        <h3 class="mt-4 font-display text-[19px] font-extrabold tracking-[-.02em] text-steam">A deeper flavour</h3>
-        <p class="mt-3 text-[15px] leading-relaxed text-steam/80">
+        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.04em] text-brass">02</span>
+        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.02em] text-steam">A deeper flavour</h3>
+        <p class="mt-3 text-[0.9375rem] leading-relaxed text-steam/80">
           Dark, faintly smoky, closer to molasses. It holds its own against ginger, cardamom and a long
           boil, where white sugar simply disappears into the milk.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-ink p-7 ring-1 ring-ink/10">
-        <span class="font-display text-[34px] font-extrabold leading-none tracking-[-.04em] text-brass">03</span>
-        <h3 class="mt-4 font-display text-[19px] font-extrabold tracking-[-.02em] text-steam">A shorter supply chain</h3>
-        <p class="mt-3 text-[15px] leading-relaxed text-steam/80">
+        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.04em] text-brass">03</span>
+        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.02em] text-steam">A shorter supply chain</h3>
+        <p class="mt-3 text-[0.9375rem] leading-relaxed text-steam/80">
           Raw, unprocessed produce from farmers in rural India working by traditional methods and
           age-old wisdom, bought at fair prices.
         </p>
@@ -444,20 +552,20 @@ tailwind.config = {
       <h2 id="mission-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-steam">
         Bridging the gap between urban and rural life
       </h2>
-      <p class="mt-5 text-[15px] leading-relaxed text-steam/85 sm:text-base">
+      <p class="mt-5 text-[0.9375rem] leading-relaxed text-steam/85 sm:text-base">
         At Hyderabadi Amruttulya, we strive to bridge the gap between urban and rural life. Observing the
         challenges of urban living, we aim to address health concerns caused by processed and chemically
         produced products. Our mission is to offer you 100% natural products, delivered straight from the
         heart of rural India.
       </p>
-      <p class="mt-4 text-[15px] leading-relaxed text-steam/85 sm:text-base">
+      <p class="mt-4 text-[0.9375rem] leading-relaxed text-steam/85 sm:text-base">
         We are committed to providing you with raw, unprocessed and natural products, supporting a healthy
         and natural lifestyle. Our products are meticulously crafted by farmers using traditional methods
         and age-old wisdom.
       </p>
 
       <blockquote class="mt-8 border-l-4 border-jaggery pl-5">
-        <p class="font-display text-[19px] font-semibold leading-snug tracking-[-.02em] text-steam sm:text-[21px]">
+        <p class="font-display text-[1.1875rem] font-semibold leading-snug tracking-[-.02em] text-steam sm:text-[1.3125rem]">
           &ldquo;Amruttulya&rdquo; means equal to nectar. That is the standard every pot is held to.
         </p>
       </blockquote>
@@ -470,37 +578,33 @@ tailwind.config = {
   <div class="mx-auto max-w-shell px-5 sm:px-8">
     <p class="eyebrow text-jaggery">The franchise</p>
     <h2 id="franchise-h" class="mt-4 max-w-[24ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-steam">
-      An affordable chai franchise, in three numbers
+      What an affordable chai franchise actually takes
     </h2>
-    <p class="mt-5 max-w-[60ch] text-[15px] leading-relaxed text-steam/75 sm:text-base">
-      A small shop, a low entry cost and a product people already drink twice a day. These are the
-      figures we work with today.
+    <p class="mt-5 max-w-[60ch] text-[0.9375rem] leading-relaxed text-steam/75 sm:text-base">
+      A small shop, a low entry cost and a product people already drink twice a day &mdash; the three
+      things that make a tea franchise inexpensive to start and simple to run.
     </p>
 
     <dl class="mt-10 grid gap-px overflow-hidden rounded-2xl bg-steam/20 sm:mt-12 sm:grid-cols-3">
       <div class="flex flex-col-reverse bg-ink p-7 sm:p-9">
-        <dt class="mt-3 font-display text-[15px] font-extrabold uppercase tracking-[.16em] text-steam/70">Profit margin</dt>
+        <dt class="mt-3 font-display text-[0.9375rem] font-extrabold uppercase tracking-[.16em] text-steam/70">Profit margin</dt>
         <dd class="font-display text-[clamp(2.2rem,8vw,3.1rem)] font-extrabold leading-none tracking-[-.04em] text-jaggery"
             data-count="50" data-from="40" data-prefix="40%&ndash;" data-suffix="%">40%&ndash;50%</dd>
       </div>
       <div class="flex flex-col-reverse bg-ink p-7 sm:p-9">
-        <dt class="mt-3 font-display text-[15px] font-extrabold uppercase tracking-[.16em] text-steam/70">Space required</dt>
+        <dt class="mt-3 font-display text-[0.9375rem] font-extrabold uppercase tracking-[.16em] text-steam/70">Space required</dt>
         <dd class="font-display text-[clamp(2.2rem,8vw,3.1rem)] font-extrabold leading-none tracking-[-.04em] text-jaggery"
             data-count="200" data-from="100" data-prefix="100&ndash;" data-suffix=" sq ft">100&ndash;200 sq ft</dd>
       </div>
-      <!-- CLIENT TO SUPPLY: replace "Very affordable" with the real franchise fee, e.g.
-           "₹4,50,000 onwards". A concrete figure converts far better than an adjective, and
-           it is the first thing every serious enquirer asks for. -->
       <div class="flex flex-col-reverse bg-ink p-7 sm:p-9">
-        <dt class="mt-3 font-display text-[15px] font-extrabold uppercase tracking-[.16em] text-steam/70">Franchise cost</dt>
-        <dd class="font-display text-[clamp(1.6rem,5.4vw,2.4rem)] font-extrabold leading-none tracking-[-.03em] text-jaggery">
-          Very affordable
-          <span class="ml-1 align-middle text-[10px] font-bold uppercase tracking-[.18em] text-steam/60">[Verify]</span>
+        <dt class="mt-3 font-display text-[0.9375rem] font-extrabold uppercase tracking-[.16em] text-steam/70">Franchise cost</dt>
+        <dd class="font-display text-[clamp(1.6rem,5.4vw,2.4rem)] font-extrabold leading-[1.08] tracking-[-.03em] text-jaggery">
+          Quoted on the call
         </dd>
       </div>
     </dl>
 
-    <p class="mt-6 text-[13px] leading-relaxed text-steam/55">
+    <p class="mt-6 text-[0.8125rem] leading-relaxed text-steam/55">
       Margins vary with location, rent and running costs. Exact figures are shared on the discovery call.
     </p>
   </div>
@@ -509,41 +613,36 @@ tailwind.config = {
 <!-- ================= HOW PARTNERING WORKS ================= -->
 <section id="how" class="bg-steam py-16 sm:py-20 lg:py-24" aria-labelledby="how-h">
   <div class="mx-auto max-w-shell px-5 sm:px-8">
-    <div class="flex flex-wrap items-center gap-3">
-      <p class="eyebrow text-chai">How partnering works</p>
-      <span class="rounded-full bg-chai/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.18em] text-chai">[Placeholder]</span>
-    </div>
-    <!-- CLIENT TO SUPPLY: confirm these five steps, what happens in each, and how long the whole
-         process takes end to end. Replace the step descriptions below with the real process. -->
+    <p class="eyebrow text-chai">How partnering works</p>
     <h2 id="how-h" class="mt-4 max-w-[22ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-ink">
       From first call to first cup
     </h2>
 
     <ol class="mt-10 grid gap-px overflow-hidden rounded-2xl bg-ink/15 sm:mt-12 sm:grid-cols-2 lg:grid-cols-5">
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[28px] font-extrabold leading-none tracking-[-.04em] text-brass">01</span>
-        <h3 class="mt-3 font-display text-[17px] font-extrabold tracking-[-.02em] text-ink">Enquire</h3>
-        <p class="mt-2 text-[14px] leading-relaxed text-ink/70">Send your name, phone and city, or simply call us.</p>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">01</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Enquire</h3>
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">WhatsApp us your name and city, or simply call.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[28px] font-extrabold leading-none tracking-[-.04em] text-brass">02</span>
-        <h3 class="mt-3 font-display text-[17px] font-extrabold tracking-[-.02em] text-ink">Discovery call</h3>
-        <p class="mt-2 text-[14px] leading-relaxed text-ink/70">We talk through costs, the model and what you are looking for.</p>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">02</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Discovery call</h3>
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">We talk through costs, the model and what you are looking for.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[28px] font-extrabold leading-none tracking-[-.04em] text-brass">03</span>
-        <h3 class="mt-3 font-display text-[17px] font-extrabold tracking-[-.02em] text-ink">Site assessment</h3>
-        <p class="mt-2 text-[14px] leading-relaxed text-ink/70">We look at your 100&ndash;200 sq ft space and its footfall.</p>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">03</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Site assessment</h3>
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">We look at the space you have in mind. An outlet needs 100&ndash;200 sq ft.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[28px] font-extrabold leading-none tracking-[-.04em] text-brass">04</span>
-        <h3 class="mt-3 font-display text-[17px] font-extrabold tracking-[-.02em] text-ink">Agreement &amp; setup</h3>
-        <p class="mt-2 text-[14px] leading-relaxed text-ink/70">Paperwork, branding and the fit-out of your outlet.</p>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">04</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Agreement &amp; setup</h3>
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">The agreement is signed and your outlet is set up.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[28px] font-extrabold leading-none tracking-[-.04em] text-brass">05</span>
-        <h3 class="mt-3 font-display text-[17px] font-extrabold tracking-[-.02em] text-ink">Training &amp; launch</h3>
-        <p class="mt-2 text-[14px] leading-relaxed text-ink/70">Recipe and counter training, then your doors open.</p>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">05</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Training &amp; launch</h3>
+        <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">Training first, then your doors open.</p>
       </li>
     </ol>
   </div>
@@ -556,47 +655,47 @@ tailwind.config = {
     <h2 id="values-h" class="mt-4 max-w-[26ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-steam">
       Rooted in health, farmers and a sustainable environment
     </h2>
-    <p class="mt-5 max-w-[62ch] text-[15px] leading-relaxed text-steam/80 sm:text-base">
+    <p class="mt-5 max-w-[62ch] text-[0.9375rem] leading-relaxed text-steam/80 sm:text-base">
       Our values are deeply rooted in our commitment to promoting health, supporting local farmers and
       creating a sustainable environment. We believe in:
     </p>
 
     <ul class="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[18px] font-extrabold tracking-[-.02em] text-steam">Health and wellness</h3>
-        <p class="mt-3 text-[14.5px] leading-relaxed text-steam/80">
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Health and wellness</h3>
+        <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We offer 100% natural products, and bring you the purest ingredients we can source.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[18px] font-extrabold tracking-[-.02em] text-steam">Empowering farmers</h3>
-        <p class="mt-3 text-[14.5px] leading-relaxed text-steam/80">
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Empowering farmers</h3>
+        <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We value our farmers and their traditional knowledge, paying fair prices for their produce and
           supporting sustainable practices.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[18px] font-extrabold tracking-[-.02em] text-steam">Sustainability</h3>
-        <p class="mt-3 text-[14.5px] leading-relaxed text-steam/80">
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Sustainability</h3>
+        <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           From sourcing to packaging, we work to minimise our environmental impact.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[18px] font-extrabold tracking-[-.02em] text-steam">Community and collaboration</h3>
-        <p class="mt-3 text-[14.5px] leading-relaxed text-steam/80">
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Community and collaboration</h3>
+        <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We work closely with local communities to support their development and promote a sense of
           belonging.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[18px] font-extrabold tracking-[-.02em] text-steam">Transparency and integrity</h3>
-        <p class="mt-3 text-[14.5px] leading-relaxed text-steam/80">
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Transparency and integrity</h3>
+        <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           Honesty and openness in every dealing, from sourcing through to customer service.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[18px] font-extrabold tracking-[-.02em] text-steam">Innovation and excellence</h3>
-        <p class="mt-3 text-[14.5px] leading-relaxed text-steam/80">
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Innovation and excellence</h3>
+        <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We keep improving our products and processes, and keep looking for better ways to work.
         </p>
       </li>
@@ -608,47 +707,20 @@ tailwind.config = {
 <section id="menu" class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="menu-h">
   <div class="mx-auto grid max-w-shell items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1.1fr,.9fr] lg:gap-14">
     <div>
-      <div class="flex flex-wrap items-center gap-3">
-        <p class="eyebrow text-chai">What you would serve</p>
-        <span class="rounded-full bg-chai/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[.18em] text-chai">[Placeholder menu]</span>
-      </div>
-      <!-- CLIENT TO SUPPLY: the real menu and the real counter prices. Every ₹— below is a
-           placeholder. Do not publish this section until actual items and prices are confirmed. -->
+      <p class="eyebrow text-chai">What you would serve</p>
+      <!-- Items only. Counter prices are deliberately not published: they are set per outlet
+           before opening, which the panel opposite says in words. -->
       <h2 id="menu-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-ink">
         The counter, roughly
       </h2>
 
-      <ul class="mt-8 space-y-4">
-        <li class="flex items-baseline">
-          <span class="font-display text-[17px] font-semibold tracking-[-.01em] text-ink">Masala chai</span>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="font-display text-[17px] font-extrabold text-chai">&#8377;&mdash;</span>
-        </li>
-        <li class="flex items-baseline">
-          <span class="font-display text-[17px] font-semibold tracking-[-.01em] text-ink">Adrak chai</span>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="font-display text-[17px] font-extrabold text-chai">&#8377;&mdash;</span>
-        </li>
-        <li class="flex items-baseline">
-          <span class="font-display text-[17px] font-semibold tracking-[-.01em] text-ink">Elaichi chai</span>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="font-display text-[17px] font-extrabold text-chai">&#8377;&mdash;</span>
-        </li>
-        <li class="flex items-baseline">
-          <span class="font-display text-[17px] font-semibold tracking-[-.01em] text-ink">Kulhad special</span>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="font-display text-[17px] font-extrabold text-chai">&#8377;&mdash;</span>
-        </li>
-        <li class="flex items-baseline">
-          <span class="font-display text-[17px] font-semibold tracking-[-.01em] text-ink">Filter coffee</span>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="font-display text-[17px] font-extrabold text-chai">&#8377;&mdash;</span>
-        </li>
-        <li class="flex items-baseline">
-          <span class="font-display text-[17px] font-semibold tracking-[-.01em] text-ink">Snacks</span>
-          <span class="leader" aria-hidden="true"></span>
-          <span class="font-display text-[17px] font-extrabold text-chai">&#8377;&mdash;</span>
-        </li>
+      <ul class="mt-8 grid gap-x-10 sm:grid-cols-2">
+        <li class="border-b border-ink/[.12] py-3.5 font-display text-[1.0625rem] font-semibold tracking-[-.01em] text-ink">Masala chai</li>
+        <li class="border-b border-ink/[.12] py-3.5 font-display text-[1.0625rem] font-semibold tracking-[-.01em] text-ink">Adrak chai</li>
+        <li class="border-b border-ink/[.12] py-3.5 font-display text-[1.0625rem] font-semibold tracking-[-.01em] text-ink">Elaichi chai</li>
+        <li class="border-b border-ink/[.12] py-3.5 font-display text-[1.0625rem] font-semibold tracking-[-.01em] text-ink">Kulhad special</li>
+        <li class="border-b border-ink/[.12] py-3.5 font-display text-[1.0625rem] font-semibold tracking-[-.01em] text-ink">Filter coffee</li>
+        <li class="border-b border-ink/[.12] py-3.5 font-display text-[1.0625rem] font-semibold tracking-[-.01em] text-ink">Snacks</li>
       </ul>
     </div>
 
@@ -658,7 +730,7 @@ tailwind.config = {
       <p class="mt-4 font-display text-[clamp(1.35rem,4.4vw,1.95rem)] font-extrabold leading-[1.15] tracking-[-.03em] text-steam">
         Chai &middot; Coffee<br>Snacks &middot; Shakes
       </p>
-      <p class="mx-auto mt-5 max-w-[34ch] text-[14px] leading-relaxed text-steam/70">
+      <p class="mx-auto mt-5 max-w-[34ch] text-[0.875rem] leading-relaxed text-steam/70">
         The four lines painted on every Hyderabadi Amruttulya signboard. What sits under them, and at
         what price, is set with you before you open.
       </p>
@@ -673,99 +745,128 @@ tailwind.config = {
     <h2 id="faq-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-ink">
       Questions people ask before they call
     </h2>
-    <!-- CLIENT TO SUPPLY: confirmed answers for all six questions below. Every answer currently
-         carries a [VERIFY] marker where a real figure, timeline or commitment belongs. -->
 
     <div class="mt-10 divide-y divide-ink/10 border-y border-ink/10">
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[17px] font-extrabold tracking-[-.02em] text-ink sm:text-[18px]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
             How much does a Hyderabadi Amruttulya chai franchise cost?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
-        <p class="pb-6 pr-8 text-[15px] leading-relaxed text-ink/75">
-          The franchise cost is described as very affordable, and it is deliberately kept low for
-          first-time owners. <strong class="font-bold text-chai">[VERIFY]</strong> the exact fee, what it
-          includes, and the total setup cost including equipment and fit-out.
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          The entry cost is deliberately kept low for first-time owners. The exact fee, what it
+          covers, and the total setup cost including equipment and fit-out are quoted on your
+          discovery call. Call <a class="font-bold text-chai underline underline-offset-2" href="tel:+919849998779">+91 98499 98779</a>.
         </p>
       </details>
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[17px] font-extrabold tracking-[-.02em] text-ink sm:text-[18px]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+            What makes this an affordable chai franchise?
+          </h3>
+          <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </summary>
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          An outlet needs 100&ndash;200 sq ft and runs as a counter rather than a sit-down caf&eacute;, so both the space and the fit-out stay small. That is what keeps the entry cost of this tea franchise low. The exact fee is quoted on your discovery call.
+        </p>
+      </details>
+
+      <details class="group py-1">
+        <summary class="flex items-center justify-between gap-4 py-5">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+            Is a chai franchise profitable?
+          </h3>
+          <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </summary>
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          Hyderabadi Amruttulya outlets work on a 40%&ndash;50% profit margin. That figure moves with location, rent and running costs, so the numbers for your own site are worked through on the discovery call.
+        </p>
+      </details>
+
+      <details class="group py-1">
+        <summary class="flex items-center justify-between gap-4 py-5">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
             Do I need experience running a food business?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
-        <p class="pb-6 pr-8 text-[15px] leading-relaxed text-ink/75">
-          Most of our enquiries come from first-time owners. <strong class="font-bold text-chai">[VERIFY]</strong>
-          the minimum requirement, and what training is given to someone with no food background.
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          Most of our enquiries come from first-time business owners, and training is provided.
+          What that training covers for someone with no food background is walked through on the
+          discovery call.
         </p>
       </details>
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[17px] font-extrabold tracking-[-.02em] text-ink sm:text-[18px]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
             How long does it take to open an outlet?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
-        <p class="pb-6 pr-8 text-[15px] leading-relaxed text-ink/75">
-          From signed agreement to opening day. <strong class="font-bold text-chai">[VERIFY]</strong> the
-          typical timeline in weeks, and what usually causes delays.
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          The clock runs from signed agreement to opening day, and covers site assessment, setup
+          and training. The timeline for your city and your site is confirmed on the discovery call.
         </p>
       </details>
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[17px] font-extrabold tracking-[-.02em] text-ink sm:text-[18px]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
             Do I get an exclusive territory?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
-        <p class="pb-6 pr-8 text-[15px] leading-relaxed text-ink/75">
-          <strong class="font-bold text-chai">[VERIFY]</strong> whether territory is protected, how the
-          radius is defined, and which cities and districts are currently open.
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          Territory terms, how the radius is defined and which cities are currently open are
+          confirmed directly with the franchise team on
+          <a class="font-bold text-chai underline underline-offset-2" href="tel:+919849998779">+91 98499 98779</a>.
         </p>
       </details>
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[17px] font-extrabold tracking-[-.02em] text-ink sm:text-[18px]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
             Where do the tea and jaggery come from?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
-        <p class="pb-6 pr-8 text-[15px] leading-relaxed text-ink/75">
-          Raw, unprocessed produce comes from farmers in rural India working by traditional methods, bought
-          at fair prices. <strong class="font-bold text-chai">[VERIFY]</strong> the specific regions, and
-          whether supply to franchise partners is centralised.
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          Raw, unprocessed produce comes from farmers in rural India who work by traditional methods
+          and age-old wisdom, bought at fair prices, and every cup is sweetened with jaggery in place
+          of refined sugar. The specific regions, and how supply reaches partners, are covered on the
+          discovery call.
         </p>
       </details>
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[17px] font-extrabold tracking-[-.02em] text-ink sm:text-[18px]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
             What ongoing support do franchise partners get?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </summary>
-        <p class="pb-6 pr-8 text-[15px] leading-relaxed text-ink/75">
-          <strong class="font-bold text-chai">[VERIFY]</strong> what is included after launch &mdash;
-          supply, recipe training, marketing material, staff training and any royalty or ongoing fee.
+        <p class="pb-6 pr-8 text-[0.9375rem] leading-relaxed text-ink/75">
+          Training is provided before you open. What continues after that, and what it covers for
+          your outlet, is set out on the discovery call.
         </p>
       </details>
     </div>
@@ -774,108 +875,63 @@ tailwind.config = {
 
 <!-- ================= ENQUIRY ================= -->
 <section id="enquiry" class="bg-enamel py-16 sm:py-20 lg:py-24" aria-labelledby="enquiry-h">
-  <div class="mx-auto grid max-w-shell gap-10 px-5 sm:px-8 lg:grid-cols-[.95fr,1.05fr] lg:gap-14">
+  <div class="mx-auto grid max-w-shell items-center gap-10 px-5 sm:px-8 lg:grid-cols-[1fr,.9fr] lg:gap-14">
 
     <div>
       <p class="eyebrow text-jaggery">Franchise enquiry</p>
       <h2 id="enquiry-h" class="mt-4 max-w-[20ch] font-display text-[clamp(1.75rem,5.4vw,2.8rem)] font-extrabold leading-[1.03] tracking-[-.03em] text-steam">
         Let&rsquo;s talk about your outlet
       </h2>
-      <p class="mt-5 max-w-[52ch] text-[15px] leading-relaxed text-steam/80 sm:text-base">
-        Call, message, or leave your details and we will get back to you. Tell us your city and we will
-        take it from there.
+      <p class="mt-5 max-w-[52ch] text-[0.9375rem] leading-relaxed text-steam/80 sm:text-base">
+        There is no form to fill in. Message us on WhatsApp or call, and ask whatever you need to
+        ask before anyone books a discovery call.
       </p>
 
-      <div class="mt-8 space-y-3">
-        <a href="tel:+919849998779"
-           class="tilt flex items-center gap-4 rounded-2xl bg-steam/[.07] p-5 ring-1 ring-steam/15 hover:bg-steam/[.12]">
-          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-jaggery text-ink">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </span>
-          <span>
-            <span class="eyebrow block text-steam/60">Call us</span>
-            <span class="mt-1 block font-display text-[19px] font-extrabold tracking-[-.02em] text-steam">+91 98499 98779</span>
-          </span>
-        </a>
-
-        <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20"
-           rel="noopener" target="_blank"
-           class="tilt flex items-center gap-4 rounded-2xl bg-steam/[.07] p-5 ring-1 ring-steam/15 hover:bg-steam/[.12]">
-          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-leaf text-steam">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
-          </span>
-          <span>
-            <span class="eyebrow block text-steam/60">WhatsApp</span>
-            <span class="mt-1 block font-display text-[19px] font-extrabold tracking-[-.02em] text-steam">Message us now</span>
-          </span>
-        </a>
-
-        <!-- Existing, working enquiry form already used by the business. Kept as a live fallback
-             until the on-page form endpoint below is connected. -->
-        <a href="https://8z1igr2wugs.typeform.com/to/WWsQq7JU" rel="noopener" target="_blank"
-           class="block rounded-2xl border border-dashed border-steam/25 p-4 text-[14px] font-semibold text-steam/75 transition-colors hover:border-jaggery hover:text-jaggery">
-          Prefer a longer form? Open our detailed franchise enquiry form &rarr;
-        </a>
-      </div>
+      <p class="mt-9 text-[0.8125rem] font-bold uppercase tracking-[.18em] text-jaggery">Worth putting in your first message</p>
+      <ul class="mt-4 space-y-3.5 text-[0.9375rem] leading-relaxed text-steam/80">
+        <li class="flex gap-4">
+          <span class="mt-3 h-px w-5 shrink-0 bg-brass" aria-hidden="true"></span>
+          <span>Your name, and the city or town you are looking at.</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="mt-3 h-px w-5 shrink-0 bg-brass" aria-hidden="true"></span>
+          <span>The spot, if you already have one &mdash; roughly the size, which floor, and what the footfall is like.</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="mt-3 h-px w-5 shrink-0 bg-brass" aria-hidden="true"></span>
+          <span>Anything you want answered first: cost, training, supply, territory.</span>
+        </li>
+      </ul>
     </div>
 
-    <!-- CLIENT / DEV ACTION: replace FORM_ENDPOINT below with a real Formspree endpoint,
-         e.g. action="https://formspree.io/f/xyzabcd". GitHub Pages cannot process form posts
-         itself, so without an endpoint this form deliberately blocks submission. -->
-    <form id="enquiryForm" action="FORM_ENDPOINT" method="POST" novalidate
-          class="rounded-2xl bg-steam p-6 ring-1 ring-ink/10 sm:p-8">
-      <h3 class="font-display text-[20px] font-extrabold tracking-[-.02em] text-ink">Send your details</h3>
-      <p class="mt-2 text-[14px] leading-relaxed text-ink/65">We only need four things.</p>
+    <div class="rounded-2xl bg-steam p-6 ring-1 ring-ink/10 sm:p-8">
+      <h3 class="font-display text-[1.25rem] font-extrabold tracking-[-.02em] text-ink">Message us now</h3>
+      <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/65">
+        Opens WhatsApp with the message already written. Add your city and send it.
+      </p>
 
-      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden">
-      <input type="hidden" name="_subject" value="New chai franchise enquiry from hyderabadiamruttulya.com">
+      <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20"
+         target="_blank" rel="noopener"
+         class="mt-6 flex w-full items-center justify-center gap-3 rounded-full bg-leaf px-6 py-4 font-display text-[1rem] font-extrabold tracking-[-.01em] text-steam transition-colors hover:bg-ink">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+        Enquire on WhatsApp
+      </a>
 
-      <div class="mt-6 space-y-5">
-        <div>
-          <label for="name" class="mb-1.5 block text-[13px] font-bold uppercase tracking-[.12em] text-ink/70">Your name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required
-                 class="w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[15px] text-ink placeholder-ink/35 transition-colors focus:border-enamel"
-                 placeholder="Ramesh Kumar" aria-describedby="err-name">
-          <p id="err-name" class="field-error" role="alert"></p>
-        </div>
-
-        <div>
-          <label for="phone" class="mb-1.5 block text-[13px] font-bold uppercase tracking-[.12em] text-ink/70">Mobile number</label>
-          <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required
-                 class="w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[15px] text-ink placeholder-ink/35 transition-colors focus:border-enamel"
-                 placeholder="98499 98779" aria-describedby="err-phone">
-          <p id="err-phone" class="field-error" role="alert"></p>
-        </div>
-
-        <div>
-          <label for="city" class="mb-1.5 block text-[13px] font-bold uppercase tracking-[.12em] text-ink/70">City or town</label>
-          <input id="city" name="city" type="text" autocomplete="address-level2" required
-                 class="w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[15px] text-ink placeholder-ink/35 transition-colors focus:border-enamel"
-                 placeholder="Hyderabad" aria-describedby="err-city">
-          <p id="err-city" class="field-error" role="alert"></p>
-        </div>
-
-        <div>
-          <label for="note" class="mb-1.5 block text-[13px] font-bold uppercase tracking-[.12em] text-ink/70">
-            Location note <span class="font-medium normal-case tracking-normal text-ink/45">(optional)</span>
-          </label>
-          <textarea id="note" name="note" rows="3"
-                    class="w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[15px] text-ink placeholder-ink/35 transition-colors focus:border-enamel"
-                    placeholder="Near the bus stand, about 150 sq ft, ground floor."></textarea>
-        </div>
+      <div class="my-6 flex items-center gap-4">
+        <span class="h-px flex-1 bg-ink/15" aria-hidden="true"></span>
+        <span class="text-[0.6875rem] font-bold uppercase tracking-[.2em] text-ink/45">or</span>
+        <span class="h-px flex-1 bg-ink/15" aria-hidden="true"></span>
       </div>
 
-      <div id="formNotice" class="mt-5 hidden rounded-xl px-4 py-3 text-[14px] leading-relaxed" role="status" aria-live="polite"></div>
-
-      <button type="submit"
-              class="mt-6 w-full rounded-full bg-enamel px-6 py-4 font-display text-[15px] font-extrabold tracking-[-.01em] text-steam transition-colors hover:bg-ink">
-        Send enquiry
-      </button>
-      <p class="mt-3 text-center text-[12.5px] text-ink/55">Or call <a href="tel:+919849998779" class="font-bold text-chai underline underline-offset-2">+91 98499 98779</a> &mdash; we answer.</p>
-    </form>
+      <a href="tel:+919849998779"
+         class="flex w-full items-center justify-center gap-3 rounded-full border border-ink/25 px-6 py-4 font-display text-[1rem] font-extrabold tracking-[-.01em] text-ink transition-colors hover:border-enamel hover:bg-enamel hover:text-steam">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91 98499 98779
+      </a>
+      <p class="mt-4 text-center text-[0.78125rem] text-ink/55">We answer.</p>
+    </div>
   </div>
 </section>
-
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -886,13 +942,13 @@ tailwind.config = {
         <img src="./images/logo.jpeg" alt="Hyderabadi Amruttulya logo" width="999" height="999" loading="lazy"
              class="h-11 w-11 rounded-full object-cover ring-2 ring-brass/70">
         <span class="font-display leading-[1.05]">
-          <span class="block text-[15px] font-extrabold tracking-[-.02em] text-steam">Hyderabadi</span>
+          <span class="block text-[0.9375rem] font-extrabold tracking-[-.02em] text-steam">Hyderabadi</span>
           <span class="eyebrow block text-jaggery">Amruttulya</span>
         </span>
       </a>
 
       <nav aria-label="Footer">
-        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-[14px] font-semibold text-steam/75">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-[0.875rem] font-semibold text-steam/75">
           <li><a href="#jaggery" class="transition-colors hover:text-jaggery">Why jaggery</a></li>
           <li><a href="#mission" class="transition-colors hover:text-jaggery">Mission</a></li>
           <li><a href="#franchise" class="transition-colors hover:text-jaggery">Franchise</a></li>
@@ -902,21 +958,21 @@ tailwind.config = {
         </ul>
       </nav>
 
-      <a href="tel:+919849998779" class="font-display text-[20px] font-extrabold tracking-[-.02em] text-jaggery">+91 98499 98779</a>
+      <a href="tel:+919849998779" class="font-display text-[1.25rem] font-extrabold tracking-[-.02em] text-jaggery">+91 98499 98779</a>
     </div>
 
     <!-- The previous site linked Facebook, Instagram, X, GitHub and YouTube icons to "#", so those
          were removed rather than shipped broken. The Instagram handle below was read from the QR
-         code in images/chai-5.jpeg. [VERIFY] it once before launch.
-         Still needed for the JSON-LD above: registered address and opening hours. -->
+         code in images/chai-5.jpeg and has not been confirmed against the live account.
+         The JSON-LD above will accept a registered address and opening hours when there are any. -->
     <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
       <a href="https://www.instagram.com/hydamruttulya/" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 text-[14px] font-semibold text-steam/70 transition-colors hover:text-jaggery">
+         class="inline-flex items-center gap-2 text-[0.875rem] font-semibold text-steam/70 transition-colors hover:text-jaggery">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 5.17a4.67 4.67 0 1 0 0 9.34 4.67 4.67 0 0 0 0-9.34zm0 7.7a3.03 3.03 0 1 1 0-6.06 3.03 3.03 0 0 1 0 6.06zm5.95-7.89a1.09 1.09 0 1 1-2.18 0 1.09 1.09 0 0 1 2.18 0z"/></svg>
         @hydamruttulya
       </a>
     </div>
-    <p class="mt-8 text-[13px] text-steam/50">
+    <p class="mt-8 text-[0.8125rem] text-steam/50">
       &copy; <span id="year">2026</span> Hyderabadi Amruttulya. All rights reserved.
     </p>
   </div>
@@ -932,7 +988,23 @@ tailwind.config = {
       "name": "How much does a Hyderabadi Amruttulya chai franchise cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The franchise cost is described as very affordable and is deliberately kept low for first-time owners. The exact fee, what it includes and the total setup cost are shared on the discovery call. Call +91 98499 98779."
+        "text": "The entry cost is deliberately kept low for first-time owners. The exact fee, what it covers, and the total setup cost including equipment and fit-out are quoted on your discovery call. Call +91 98499 98779."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes this an affordable chai franchise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An outlet needs 100–200 sq ft and runs as a counter rather than a sit-down café, so both the space and the fit-out stay small. That is what keeps the entry cost of this tea franchise low. The exact fee is quoted on your discovery call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a chai franchise profitable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hyderabadi Amruttulya outlets work on a 40%–50% profit margin. That figure moves with location, rent and running costs, so the numbers for your own site are worked through on the discovery call."
       }
     },
     {
@@ -940,7 +1012,7 @@ tailwind.config = {
       "name": "Do I need experience running a food business?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most enquiries come from first-time business owners. Training is provided; the exact requirements are confirmed on the discovery call."
+        "text": "Most of our enquiries come from first-time business owners, and training is provided. What that training covers for someone with no food background is walked through on the discovery call."
       }
     },
     {
@@ -948,7 +1020,7 @@ tailwind.config = {
       "name": "How long does it take to open an outlet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The timeline runs from signed agreement to opening day, covering site assessment, setup and training. Exact durations are confirmed on the discovery call."
+        "text": "The clock runs from signed agreement to opening day, and covers site assessment, setup and training. The timeline for your city and your site is confirmed on the discovery call."
       }
     },
     {
@@ -956,7 +1028,7 @@ tailwind.config = {
       "name": "Do I get an exclusive territory?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Territory terms, radius and currently open cities are confirmed directly with the franchise team on +91 98499 98779."
+        "text": "Territory terms, how the radius is defined and which cities are currently open are confirmed directly with the franchise team on +91 98499 98779."
       }
     },
     {
@@ -964,7 +1036,7 @@ tailwind.config = {
       "name": "Where do the tea and jaggery come from?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Raw, unprocessed produce comes from farmers in rural India working by traditional methods and age-old wisdom, bought at fair prices. Hyderabadi Amruttulya uses jaggery instead of refined sugar in its chai."
+        "text": "Raw, unprocessed produce comes from farmers in rural India who work by traditional methods and age-old wisdom, bought at fair prices, and every cup is sweetened with jaggery in place of refined sugar. The specific regions, and how supply reaches partners, are covered on the discovery call."
       }
     },
     {
@@ -972,7 +1044,7 @@ tailwind.config = {
       "name": "What ongoing support do franchise partners get?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Support after launch covers supply, recipe and counter training and branding. The full list of what is included is confirmed on the discovery call."
+        "text": "Training is provided before you open. What continues after that, and what it covers for your outlet, is set out on the discovery call."
       }
     }
   ]
@@ -1065,94 +1137,6 @@ tailwind.config = {
       });
     }, { threshold: 0.5 });
     Array.prototype.forEach.call(counters, function (el) { io.observe(el); });
-  }
-
-  /* ---------- enquiry form ---------- */
-  var form = document.getElementById('enquiryForm');
-  if (form) {
-    var notice = document.getElementById('formNotice');
-    var nameEl = document.getElementById('name');
-    var phoneEl = document.getElementById('phone');
-    var cityEl = document.getElementById('city');
-
-    function setError(input, message) {
-      var err = document.getElementById('err-' + input.id);
-      if (message) {
-        err.textContent = message;
-        err.classList.add('is-visible');
-        input.classList.add('is-invalid');
-        input.setAttribute('aria-invalid', 'true');
-      } else {
-        err.textContent = '';
-        err.classList.remove('is-visible');
-        input.classList.remove('is-invalid');
-        input.removeAttribute('aria-invalid');
-      }
-    }
-
-    function checkName(el) {
-      var v = el.value.trim();
-      if (!v) { return 'Enter your name so we know who we are calling.'; }
-      if (v.length < 2) { return 'That looks too short — enter your full name.'; }
-      return '';
-    }
-    function checkPhone(el) {
-      var d = el.value.replace(/[^0-9]/g, '');
-      if (d.length === 12 && d.slice(0, 2) === '91') { d = d.slice(2); }
-      if (d.length === 11 && d.charAt(0) === '0') { d = d.slice(1); }
-      if (!d) { return 'Enter a 10-digit mobile number so we can call you back.'; }
-      if (d.length !== 10) { return 'Enter a 10-digit mobile number — you have entered ' + d.length + '.'; }
-      if ('6789'.indexOf(d.charAt(0)) === -1) { return 'Indian mobile numbers start with 6, 7, 8 or 9.'; }
-      return '';
-    }
-    function checkCity(el) {
-      var v = el.value.trim();
-      if (!v) { return 'Tell us the city or town you want to open in.'; }
-      if (v.length < 2) { return 'That looks too short — enter the full city or town name.'; }
-      return '';
-    }
-
-    var checks = [[nameEl, checkName], [phoneEl, checkPhone], [cityEl, checkCity]];
-
-    checks.forEach(function (pair) {
-      pair[0].addEventListener('blur', function () { setError(pair[0], pair[1](pair[0])); });
-      pair[0].addEventListener('input', function () {
-        if (pair[0].classList.contains('is-invalid')) { setError(pair[0], pair[1](pair[0])); }
-      });
-    });
-
-    function showNotice(html, kind) {
-      notice.innerHTML = html;
-      notice.className = 'form-notice ' + (kind === 'error' ? 'notice-error' : 'notice-warn');
-    }
-
-    form.addEventListener('submit', function (e) {
-      var firstInvalid = null;
-      checks.forEach(function (pair) {
-        var message = pair[1](pair[0]);
-        setError(pair[0], message);
-        if (message && !firstInvalid) { firstInvalid = pair[0]; }
-      });
-
-      if (firstInvalid) {
-        e.preventDefault();
-        showNotice('Please fix the highlighted fields above, then send again.', 'error');
-        firstInvalid.focus();
-        return;
-      }
-
-      if ((form.getAttribute('action') || '').indexOf('FORM_ENDPOINT') !== -1) {
-        e.preventDefault();
-        showNotice(
-          '<strong class="font-bold">This form is not connected yet.</strong> Your details were not sent. ' +
-          'Please call <a class="font-bold underline underline-offset-2" href="tel:+919849998779">+91 98499 98779</a>, ' +
-          '<a class="font-bold underline underline-offset-2" target="_blank" rel="noopener" href="https://wa.me/919849998779">message us on WhatsApp</a>, or ' +
-          '<a class="font-bold underline underline-offset-2" target="_blank" rel="noopener" href="https://8z1igr2wugs.typeform.com/to/WWsQq7JU">use our enquiry form</a>.',
-          'warn'
-        );
-        return;
-      }
-    });
   }
 
   /* ---------- footer year ---------- */

@@ -25,18 +25,45 @@ sed -i '' 's|"og:image" content="./images/|"og:image" content="https://hyderabad
 sed -i '' 's|"twitter:image" content="./images/|"twitter:image" content="https://hyderabadiamruttulya.com/images/|' index.html
 ```
 
-### Connect the enquiry form
+### Enquiries
 
-GitHub Pages cannot process form posts. Create a form at formspree.io, then:
+There is no contact form, and GitHub Pages could not process one anyway. Every enquiry route on
+the page is a plain link, so nothing can silently fail:
+
+| Where | Goes to |
+|---|---|
+| Hero "Enquire about a franchise" | WhatsApp, new tab |
+| Mobile drawer CTA | WhatsApp, new tab |
+| Nav "Call us", footer number | `tel:+919849998779` |
+| `#enquiry` section | WhatsApp button + call button |
+
+The WhatsApp links open a pre-written message the visitor completes with their city. To change
+either the number or that message, edit every occurrence at once:
 
 ```sh
-sed -i '' 's|action="FORM_ENDPOINT"|action="https://formspree.io/f/YOURID"|' index.html
+# number (appears in wa.me links, tel: links, JSON-LD and llms.txt)
+grep -rn '9849998779' index.html llms.txt
 ```
 
-Until that swap, the form deliberately blocks submission and shows an inline notice pointing at
-the phone, WhatsApp and the existing Typeform — it never fails silently.
+## 2. Scale, phone to television
 
-## 2. Search + AI visibility
+Every size on the page is in `rem`, and one root-size ramp in the `<style>` block
+carries the whole design from a 320px phone to a television:
+
+| Viewport | Root size | Shell width |
+|---|---|---|
+| up to 1536px | 16px (browser default — nothing changes) | 1180px |
+| 1536px → 3840px | `clamp(16px, .55vw + 7.55px, 22px)` | `clamp(1180px, 62vw + 240px, 2080px)` |
+| ≥ 2200px **and** `hover: none` — i.e. a TV | `clamp(22px, .95vw, 30px)` | as above |
+
+The TV rule keys off the absence of a pointer, because a 4K monitor at desk
+distance and a 4K television across a room need different sizes at the same
+pixel width. Nothing about the layout changes at any of these steps; only scale.
+
+The hero fills the first screen (`min-height: min(100svh, 66rem)`) only above
+1024px wide **and** 640px tall, so mobile landscape is never squeezed.
+
+## 3. Search + AI visibility
 
 - `robots.txt` allows all crawlers and names the AI ones explicitly (GPTBot, ClaudeBot,
   PerplexityBot, Google-Extended, Applebot-Extended, CCBot, OAI-SearchBot).
@@ -49,23 +76,48 @@ the phone, WhatsApp and the existing Typeform — it never fails silently.
 
 After deploying: submit the sitemap in Google Search Console and request indexing.
 
-## 3. What the client must supply
+## 4. Nothing on the page is unverified
 
-| Marker | Where | What is needed |
-|---|---|---|
-| `[VERIFY]` | Why jaggery, card 01 | Exact jaggery variety, region and process, so the card can describe the product precisely. Keep it descriptive — no health claims. |
-| `[VERIFY]` | Franchise numbers, "Very affordable" | The real franchise fee (e.g. "₹4,50,000 onwards") and what it includes. A figure converts; an adjective does not. |
-| `[PLACEHOLDER]` | How partnering works | Confirmation of the five steps, what happens in each, and the end-to-end timeline. |
-| `[Placeholder menu]` | Menu preview | Real menu items and real counter prices. Every `₹—` is a placeholder — do not launch this section as-is. |
-| `[VERIFY]` ×6 | FAQ | Answers for: franchise fee, experience needed, opening timeline, territory protection, sourcing specifics, ongoing support and any royalty. |
-| `[VERIFY]` | Footer Instagram link | Handle `@hydamruttulya` was read from the QR code in `images/chai-5.jpeg`. Confirm it resolves. |
-| — | JSON-LD | Registered address, geo coordinates, opening hours, and any other social profiles. |
+Every `[VERIFY]` and `[PLACEHOLDER]` marker has been cleared. No marker was replaced with a guess:
+where a figure or commitment was not confirmed, the sentence was rewritten to say only what the
+business has actually stated and to name the discovery call for the rest. The page can go live as
+it stands.
+
+What is still worth supplying — each one upgrades a line that currently reads as "ask us":
+
+| Where | What would sharpen it |
+|---|---|
+| Franchise numbers, third tile | A fee range, e.g. "₹3.5L – ₹6L". The tile currently reads "Quoted on the call". A range converts far better and filters out people who cannot afford it. |
+| Why jaggery, card 01 | The exact variety, region and process. The card currently describes jaggery generically. Keep it descriptive — no blood-sugar, immunity, weight or mineral claims, which are regulated in India. |
+| How partnering works | Confirmation that the five steps are the real process, and the end-to-end timeline. The steps as written stay inside what the FAQ already commits to. |
+| FAQ, six answers | Real figures for: fee, training given, timeline in weeks, territory radius, sourcing regions and post-launch support. Fee structure is deliberately not described on the page — it varies per partner. |
+| Menu preview | Confirm the six items are what every outlet serves. Prices are deliberately not published — they are set per outlet before opening. |
+| Footer Instagram link | `@hydamruttulya` was read off the QR code in `images/chai-5.jpeg` and is **not confirmed**. Instagram serves the same login page for a real handle and a dead one, so this cannot be checked without signing in. Open it once before launch. |
+| JSON-LD `LocalBusiness` | Registered address, geo coordinates, opening hours, other social profiles. All optional in schema.org — the block validates without them. |
+
+**Do not put a comment inside either `application/ld+json` block.** JSON has no comments, and one
+in the `LocalBusiness` block was silently invalidating the whole thing until it was removed.
+
+The six FAQ answers are duplicated word-for-word in the `FAQPage` structured data. Google requires
+the two to match, so **edit both or neither**:
+
+```sh
+python3 - <<'EOF'
+import json,re,html
+s=open('index.html',encoding='utf-8').read()
+vis=[re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',m))).strip()
+     for m in re.findall(r'<p class="pb-6 pr-8[^"]*">(.*?)</p>', s, re.S)]
+ld=[q['acceptedAnswer']['text'] for q in
+    json.loads(re.findall(r'<script type="application/ld\+json">(.*?)</script>', s, re.S)[1])['mainEntity']]
+for i,(v,l) in enumerate(zip(vis,ld),1):
+    print(i, 'MATCH' if v==l else 'DIFFERS')
+EOF
+```
 
 Nothing on the page states an outlet count, location list, founding year, award or testimonial,
-because none of those are confirmed. Jaggery is described only in terms of processing, flavour and
-provenance — no blood-sugar, immunity, weight or mineral claims, which are regulated in India.
+because none of those are confirmed.
 
-## 4. Notes on the old site
+## 5. Notes on the old site
 
 - `images/chai-3.jpeg` was captioned "tea plantation" on the old site; it is actually an outlet
   opening. All `alt` text now matches what is really in each photo.
