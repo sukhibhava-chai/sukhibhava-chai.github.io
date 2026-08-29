@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://hyderabadiamruttulya.com/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://hyderabadiamruttulya.com/images/chai-4.jpeg</image:loc>
+      <image:title>Hyderabadi Amruttulya chai in a branded kulhad cup</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hyderabadiamruttulya.com/images/chai-lg.jpeg</image:loc>
+      <image:title>A Hyderabadi Amruttulya chai franchise outlet busy at night</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://hyderabadiamruttulya.com/images/chai-2.jpeg</image:loc>
+      <image:title>The Hyderabadi Amruttulya signboard</image:title>
+    </image:image>
   </url>
 </urlset>
