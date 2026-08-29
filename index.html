@@ -42,7 +42,12 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Karla:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@500&display=swap" rel="stylesheet">
+<!-- Fraunces carries the voice and Inter runs the interface. Both are asked
+     for as variable ranges rather than named weights, so one file covers every
+     weight on the page. Fraunces is requested across its optical-size axis
+     (9..144): the face is redrawn as it grows, which is the whole reason to
+     use it at 4.5rem and at 1rem in the same document. -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Inter:wght@400..700&family=Noto+Sans+Devanagari:wght@500&display=swap" rel="stylesheet">
 
 <!-- ==========================================================================
      GENERATED — do not hand-edit the rules below.
@@ -59,7 +64,7 @@
      then paste build/output.css between the markers below. The theme lives in
      tailwind.config.js. See HANDOVER.md §3.
      ========================================================================== -->
-<style id="tw">/* tw:start */*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.inset-x-0{left:0;right:0}.left-1\/2{left:50%}.top-0{top:0}.top-4{top:1rem}.z-50{z-index:50}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.ml-2{margin-left:.5rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-0\.5{height:.125rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-28{height:7rem}.h-\[260px\]{height:260px}.h-full{height:100%}.h-px{height:1px}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-24{width:6rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-\[42\%\]{width:42%}.w-full{width:100%}.min-w-\[34rem\]{min-width:34rem}.max-w-\[20ch\]{max-width:20ch}.max-w-\[22ch\]{max-width:22ch}.max-w-\[24ch\]{max-width:24ch}.max-w-\[26ch\]{max-width:26ch}.max-w-\[34ch\]{max-width:34ch}.max-w-\[52ch\]{max-width:52ch}.max-w-\[60ch\]{max-width:60ch}.max-w-\[62ch\]{max-width:62ch}.max-w-\[70ch\]{max-width:70ch}.max-w-\[820px\]{max-width:820px}.max-w-shell{max-width:var(--shell,1180px)}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.border-collapse{border-collapse:collapse}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-px{gap:1px}.gap-x-10{-moz-column-gap:2.5rem;column-gap:2.5rem}.gap-x-6{-moz-column-gap:1.5rem;column-gap:1.5rem}.gap-x-7{-moz-column-gap:1.75rem;column-gap:1.75rem}.gap-y-2{row-gap:.5rem}.gap-y-3{row-gap:.75rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-3\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.875rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.875rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-ink\/10>:not([hidden])~:not([hidden]){border-color:rgba(16,32,30,.1)}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.text-wrap{text-wrap:wrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-y-2{border-top-width:2px;border-bottom-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-brass\/70{border-color:rgba(192,138,62,.7)}.border-ink\/10{border-color:rgba(16,32,30,.1)}.border-ink\/25{border-color:rgba(16,32,30,.25)}.border-ink\/\[\.12\]{border-color:rgba(16,32,30,.12)}.border-jaggery{--tw-border-opacity:1;border-color:rgb(230 169 60/var(--tw-border-opacity,1))}.border-steam\/10{border-color:hsla(41,42%,93%,.1)}.border-steam\/15{border-color:hsla(41,42%,93%,.15)}.border-steam\/30{border-color:hsla(41,42%,93%,.3)}.border-steam\/35{border-color:hsla(41,42%,93%,.35)}.bg-brass{--tw-bg-opacity:1;background-color:rgb(192 138 62/var(--tw-bg-opacity,1))}.bg-enamel{--tw-bg-opacity:1;background-color:rgb(18 59 69/var(--tw-bg-opacity,1))}.bg-ink{--tw-bg-opacity:1;background-color:rgb(16 32 30/var(--tw-bg-opacity,1))}.bg-ink\/15{background-color:rgba(16,32,30,.15)}.bg-jaggery{--tw-bg-opacity:1;background-color:rgb(230 169 60/var(--tw-bg-opacity,1))}.bg-leaf{--tw-bg-opacity:1;background-color:rgb(62 107 74/var(--tw-bg-opacity,1))}.bg-steam{--tw-bg-opacity:1;background-color:rgb(244 239 228/var(--tw-bg-opacity,1))}.bg-steam\/20{background-color:hsla(41,42%,93%,.2)}.bg-steam\/\[\.07\]{background-color:hsla(41,42%,93%,.07)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.object-cover{-o-object-fit:cover;object-fit:cover}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-9{padding-top:2.25rem;padding-bottom:2.25rem}.pb-6{padding-bottom:1.5rem}.pb-8{padding-bottom:2rem}.pl-5{padding-left:1.25rem}.pl-7{padding-left:1.75rem}.pr-6{padding-right:1.5rem}.pr-8{padding-right:2rem}.pt-7{padding-top:1.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-body{font-family:Karla,system-ui,-apple-system,Segoe UI,sans-serif}.font-deva{font-family:Noto Sans Devanagari,system-ui,sans-serif}.font-display{font-family:Bricolage Grotesque,Georgia,system-ui,sans-serif}.text-\[0\.4em\]{font-size:.4em}.text-\[0\.6875rem\]{font-size:.6875rem}.text-\[0\.78125rem\]{font-size:.78125rem}.text-\[0\.8125rem\]{font-size:.8125rem}.text-\[0\.875rem\]{font-size:.875rem}.text-\[0\.90625rem\]{font-size:.90625rem}.text-\[0\.9375rem\]{font-size:.9375rem}.text-\[1\.0625rem\]{font-size:1.0625rem}.text-\[1\.125rem\]{font-size:1.125rem}.text-\[1\.1875rem\]{font-size:1.1875rem}.text-\[1\.25rem\]{font-size:1.25rem}.text-\[1\.625rem\]{font-size:1.625rem}.text-\[1\.75rem\]{font-size:1.75rem}.text-\[1rem\]{font-size:1rem}.text-\[2\.125rem\]{font-size:2.125rem}.text-\[clamp\(1\.35rem\2c 4\.4vw\2c 1\.95rem\)\]{font-size:clamp(1.35rem,4.4vw,1.95rem)}.text-\[clamp\(1\.65rem\2c 5vw\2c 2\.6rem\)\]{font-size:clamp(1.65rem,5vw,2.6rem)}.text-\[clamp\(1\.75rem\2c 5\.4vw\2c 2\.8rem\)\]{font-size:clamp(1.75rem,5.4vw,2.8rem)}.text-\[clamp\(1\.75rem\2c 5\.4vw\2c 3rem\)\]{font-size:clamp(1.75rem,5.4vw,3rem)}.text-\[clamp\(2\.2rem\2c 8vw\2c 3\.1rem\)\]{font-size:clamp(2.2rem,8vw,3.1rem)}.text-\[clamp\(2rem\2c 7vw\2c 3\.1rem\)\]{font-size:clamp(2rem,7vw,3.1rem)}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.02\]{line-height:1.02}.leading-\[1\.03\]{line-height:1.03}.leading-\[1\.04\]{line-height:1.04}.leading-\[1\.05\]{line-height:1.05}.leading-\[1\.15\]{line-height:1.15}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-\[-\.01em\]{letter-spacing:-.01em}.tracking-\[-\.02em\]{letter-spacing:-.02em}.tracking-\[-\.03em\]{letter-spacing:-.03em}.tracking-\[-\.04em\]{letter-spacing:-.04em}.tracking-\[\.01em\]{letter-spacing:.01em}.tracking-\[\.14em\]{letter-spacing:.14em}.tracking-\[\.16em\]{letter-spacing:.16em}.tracking-\[\.18em\]{letter-spacing:.18em}.tracking-\[\.2em\]{letter-spacing:.2em}.text-brass{--tw-text-opacity:1;color:rgb(192 138 62/var(--tw-text-opacity,1))}.text-chai{--tw-text-opacity:1;color:rgb(138 75 42/var(--tw-text-opacity,1))}.text-ink{--tw-text-opacity:1;color:rgb(16 32 30/var(--tw-text-opacity,1))}.text-ink\/45{color:rgba(16,32,30,.45)}.text-ink\/55{color:rgba(16,32,30,.55)}.text-ink\/65{color:rgba(16,32,30,.65)}.text-ink\/70{color:rgba(16,32,30,.7)}.text-ink\/75{color:rgba(16,32,30,.75)}.text-jaggery{--tw-text-opacity:1;color:rgb(230 169 60/var(--tw-text-opacity,1))}.text-jaggery\/70{color:rgba(230,169,60,.7)}.text-steam{--tw-text-opacity:1;color:rgb(244 239 228/var(--tw-text-opacity,1))}.text-steam\/50{color:hsla(41,42%,93%,.5)}.text-steam\/55{color:hsla(41,42%,93%,.55)}.text-steam\/60{color:hsla(41,42%,93%,.6)}.text-steam\/70{color:hsla(41,42%,93%,.7)}.text-steam\/75{color:hsla(41,42%,93%,.75)}.text-steam\/80{color:hsla(41,42%,93%,.8)}.text-steam\/85{color:hsla(41,42%,93%,.85)}.text-steam\/90{color:hsla(41,42%,93%,.9)}.underline{text-decoration-line:underline}.underline-offset-2{text-underline-offset:2px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.outline{outline-style:solid}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-1,.ring-2{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-brass\/70{--tw-ring-color:rgba(192,138,62,.7)}.ring-ink\/10{--tw-ring-color:rgba(16,32,30,.1)}.ring-steam\/10{--tw-ring-color:hsla(41,42%,93%,.1)}.ring-steam\/15{--tw-ring-color:hsla(41,42%,93%,.15)}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:border-enamel:hover{--tw-border-opacity:1;border-color:rgb(18 59 69/var(--tw-border-opacity,1))}.hover\:border-jaggery:hover{--tw-border-opacity:1;border-color:rgb(230 169 60/var(--tw-border-opacity,1))}.hover\:bg-enamel:hover{--tw-bg-opacity:1;background-color:rgb(18 59 69/var(--tw-bg-opacity,1))}.hover\:bg-ink:hover{--tw-bg-opacity:1;background-color:rgb(16 32 30/var(--tw-bg-opacity,1))}.hover\:bg-steam:hover{--tw-bg-opacity:1;background-color:rgb(244 239 228/var(--tw-bg-opacity,1))}.hover\:bg-steam\/\[\.11\]:hover{background-color:hsla(41,42%,93%,.11)}.hover\:text-jaggery:hover{--tw-text-opacity:1;color:rgb(230 169 60/var(--tw-text-opacity,1))}.hover\:text-steam:hover{--tw-text-opacity:1;color:rgb(244 239 228/var(--tw-text-opacity,1))}.focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}.focus\:fixed:focus{position:fixed}.focus\:left-4:focus{left:1rem}.focus\:top-4:focus{top:1rem}.focus\:z-\[100\]:focus{z-index:100}.focus\:rounded-full:focus{border-radius:9999px}.focus\:bg-jaggery:focus{--tw-bg-opacity:1;background-color:rgb(230 169 60/var(--tw-bg-opacity,1))}.focus\:px-5:focus{padding-left:1.25rem;padding-right:1.25rem}.focus\:py-3:focus{padding-top:.75rem;padding-bottom:.75rem}.focus\:font-display:focus{font-family:Bricolage Grotesque,Georgia,system-ui,sans-serif}.focus\:text-sm:focus{font-size:.875rem;line-height:1.25rem}.focus\:font-extrabold:focus{font-weight:800}.focus\:text-ink:focus{--tw-text-opacity:1;color:rgb(16 32 30/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:mt-12{margin-top:3rem}.sm\:mt-14{margin-top:3.5rem}.sm\:h-11{height:2.75rem}.sm\:h-36{height:9rem}.sm\:h-\[360px\]{height:360px}.sm\:w-11{width:2.75rem}.sm\:w-28{width:7rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:gap-4{gap:1rem}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:p-9{padding:2.25rem}.sm\:px-10{padding-left:2.5rem;padding-right:2.5rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:px-9{padding-left:2.25rem;padding-right:2.25rem}.sm\:py-12{padding-top:3rem;padding-bottom:3rem}.sm\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:text-\[0\.875rem\]{font-size:.875rem}.sm\:text-\[0\.9375rem\]{font-size:.9375rem}.sm\:text-\[1\.125rem\]{font-size:1.125rem}.sm\:text-\[1\.3125rem\]{font-size:1.3125rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1024px){.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:h-\[440px\]{height:440px}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\:grid-cols-\[1\.1fr\2c \.9fr\]{grid-template-columns:1.1fr .9fr}.lg\:grid-cols-\[1fr\2c \.9fr\]{grid-template-columns:1fr .9fr}.lg\:gap-14{gap:3.5rem}.lg\:py-24{padding-top:6rem;padding-bottom:6rem}}@media (min-width:1800px){.\33xl\:px-12{padding-left:3rem;padding-right:3rem}.\33xl\:px-14{padding-left:3.5rem;padding-right:3.5rem}.\33xl\:py-16{padding-top:4rem;padding-bottom:4rem}}/* tw:end */</style>
+<style id="tw">/* tw:start */*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.visible{visibility:visible}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.inset-x-0{left:0;right:0}.left-1\/2{left:50%}.top-0{top:0}.top-4{top:1rem}.z-50{z-index:50}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.ml-2{margin-left:.5rem}.mt-10{margin-top:2.5rem}.mt-12{margin-top:3rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.mt-9{margin-top:2.25rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-0\.5{height:.125rem}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-28{height:7rem}.h-\[260px\]{height:260px}.h-full{height:100%}.h-px{height:1px}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-24{width:6rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-\[42\%\]{width:42%}.w-full{width:100%}.min-w-\[34rem\]{min-width:34rem}.max-w-\[20ch\]{max-width:20ch}.max-w-\[22ch\]{max-width:22ch}.max-w-\[24ch\]{max-width:24ch}.max-w-\[26ch\]{max-width:26ch}.max-w-\[34ch\]{max-width:34ch}.max-w-\[52ch\]{max-width:52ch}.max-w-\[60ch\]{max-width:60ch}.max-w-\[62ch\]{max-width:62ch}.max-w-\[70ch\]{max-width:70ch}.max-w-\[820px\]{max-width:820px}.max-w-shell{max-width:var(--shell,1180px)}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.grow{flex-grow:1}.border-collapse{border-collapse:collapse}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-px{gap:1px}.gap-x-10{-moz-column-gap:2.5rem;column-gap:2.5rem}.gap-x-6{-moz-column-gap:1.5rem;column-gap:1.5rem}.gap-x-7{-moz-column-gap:1.75rem;column-gap:1.75rem}.gap-y-2{row-gap:.5rem}.gap-y-3{row-gap:.75rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-3\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.875rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.875rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-ink\/10>:not([hidden])~:not([hidden]){border-color:rgba(16,32,30,.1)}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.whitespace-nowrap{white-space:nowrap}.text-wrap{text-wrap:wrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-y-2{border-top-width:2px;border-bottom-width:2px}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-brass\/70{border-color:rgba(192,138,62,.7)}.border-ink\/10{border-color:rgba(16,32,30,.1)}.border-ink\/25{border-color:rgba(16,32,30,.25)}.border-ink\/\[\.12\]{border-color:rgba(16,32,30,.12)}.border-jaggery{--tw-border-opacity:1;border-color:rgb(230 169 60/var(--tw-border-opacity,1))}.border-steam\/10{border-color:hsla(41,42%,93%,.1)}.border-steam\/15{border-color:hsla(41,42%,93%,.15)}.border-steam\/30{border-color:hsla(41,42%,93%,.3)}.border-steam\/35{border-color:hsla(41,42%,93%,.35)}.bg-brass{--tw-bg-opacity:1;background-color:rgb(192 138 62/var(--tw-bg-opacity,1))}.bg-enamel{--tw-bg-opacity:1;background-color:rgb(18 59 69/var(--tw-bg-opacity,1))}.bg-ink{--tw-bg-opacity:1;background-color:rgb(16 32 30/var(--tw-bg-opacity,1))}.bg-ink\/15{background-color:rgba(16,32,30,.15)}.bg-jaggery{--tw-bg-opacity:1;background-color:rgb(230 169 60/var(--tw-bg-opacity,1))}.bg-leaf{--tw-bg-opacity:1;background-color:rgb(62 107 74/var(--tw-bg-opacity,1))}.bg-steam{--tw-bg-opacity:1;background-color:rgb(244 239 228/var(--tw-bg-opacity,1))}.bg-steam\/20{background-color:hsla(41,42%,93%,.2)}.bg-steam\/\[\.07\]{background-color:hsla(41,42%,93%,.07)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.object-cover{-o-object-fit:cover;object-fit:cover}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-9{padding-top:2.25rem;padding-bottom:2.25rem}.pb-6{padding-bottom:1.5rem}.pb-8{padding-bottom:2rem}.pl-5{padding-left:1.25rem}.pl-7{padding-left:1.75rem}.pr-6{padding-right:1.5rem}.pr-8{padding-right:2rem}.pt-7{padding-top:1.75rem}.text-left{text-align:left}.text-center{text-align:center}.font-body{font-family:Inter,system-ui,-apple-system,Segoe UI,Helvetica Neue,Arial,sans-serif}.font-deva{font-family:Noto Sans Devanagari,system-ui,sans-serif}.font-display{font-family:Fraunces,Georgia,Times New Roman,serif}.text-\[0\.4em\]{font-size:.4em}.text-\[0\.6875rem\]{font-size:.6875rem}.text-\[0\.78125rem\]{font-size:.78125rem}.text-\[0\.8125rem\]{font-size:.8125rem}.text-\[0\.875rem\]{font-size:.875rem}.text-\[0\.90625rem\]{font-size:.90625rem}.text-\[0\.9375rem\]{font-size:.9375rem}.text-\[1\.0625rem\]{font-size:1.0625rem}.text-\[1\.125rem\]{font-size:1.125rem}.text-\[1\.1875rem\]{font-size:1.1875rem}.text-\[1\.25rem\]{font-size:1.25rem}.text-\[1\.625rem\]{font-size:1.625rem}.text-\[1\.75rem\]{font-size:1.75rem}.text-\[1rem\]{font-size:1rem}.text-\[2\.125rem\]{font-size:2.125rem}.text-\[clamp\(1\.35rem\2c 4\.4vw\2c 1\.95rem\)\]{font-size:clamp(1.35rem,4.4vw,1.95rem)}.text-\[clamp\(1\.65rem\2c 5vw\2c 2\.6rem\)\]{font-size:clamp(1.65rem,5vw,2.6rem)}.text-\[clamp\(1\.75rem\2c 5\.4vw\2c 2\.8rem\)\]{font-size:clamp(1.75rem,5.4vw,2.8rem)}.text-\[clamp\(1\.75rem\2c 5\.4vw\2c 3rem\)\]{font-size:clamp(1.75rem,5.4vw,3rem)}.text-\[clamp\(2\.2rem\2c 8vw\2c 3\.1rem\)\]{font-size:clamp(2.2rem,8vw,3.1rem)}.text-\[clamp\(2rem\2c 7vw\2c 3\.1rem\)\]{font-size:clamp(2rem,7vw,3.1rem)}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.05\]{line-height:1.05}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.22\]{line-height:1.22}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-\[-\.015em\]{letter-spacing:-.015em}.tracking-\[-\.01em\]{letter-spacing:-.01em}.tracking-\[-\.02em\]{letter-spacing:-.02em}.tracking-\[\.01em\]{letter-spacing:.01em}.tracking-\[\.14em\]{letter-spacing:.14em}.tracking-\[\.16em\]{letter-spacing:.16em}.tracking-\[\.18em\]{letter-spacing:.18em}.tracking-\[\.2em\]{letter-spacing:.2em}.text-brass{--tw-text-opacity:1;color:rgb(192 138 62/var(--tw-text-opacity,1))}.text-chai{--tw-text-opacity:1;color:rgb(138 75 42/var(--tw-text-opacity,1))}.text-ink{--tw-text-opacity:1;color:rgb(16 32 30/var(--tw-text-opacity,1))}.text-ink\/65{color:rgba(16,32,30,.65)}.text-ink\/70{color:rgba(16,32,30,.7)}.text-ink\/75{color:rgba(16,32,30,.75)}.text-jaggery{--tw-text-opacity:1;color:rgb(230 169 60/var(--tw-text-opacity,1))}.text-jaggery\/70{color:rgba(230,169,60,.7)}.text-steam{--tw-text-opacity:1;color:rgb(244 239 228/var(--tw-text-opacity,1))}.text-steam\/50{color:hsla(41,42%,93%,.5)}.text-steam\/55{color:hsla(41,42%,93%,.55)}.text-steam\/60{color:hsla(41,42%,93%,.6)}.text-steam\/70{color:hsla(41,42%,93%,.7)}.text-steam\/75{color:hsla(41,42%,93%,.75)}.text-steam\/80{color:hsla(41,42%,93%,.8)}.text-steam\/85{color:hsla(41,42%,93%,.85)}.text-steam\/90{color:hsla(41,42%,93%,.9)}.underline{text-decoration-line:underline}.underline-offset-2{text-underline-offset:2px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color),0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.ring{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring,.ring-1{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-1{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-brass\/70{--tw-ring-color:rgba(192,138,62,.7)}.ring-ink\/10{--tw-ring-color:rgba(16,32,30,.1)}.ring-steam\/10{--tw-ring-color:hsla(41,42%,93%,.1)}.ring-steam\/15{--tw-ring-color:hsla(41,42%,93%,.15)}.blur{--tw-blur:blur(8px)}.blur,.grayscale{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:border-enamel:hover{--tw-border-opacity:1;border-color:rgb(18 59 69/var(--tw-border-opacity,1))}.hover\:border-jaggery:hover{--tw-border-opacity:1;border-color:rgb(230 169 60/var(--tw-border-opacity,1))}.hover\:bg-enamel:hover{--tw-bg-opacity:1;background-color:rgb(18 59 69/var(--tw-bg-opacity,1))}.hover\:bg-ink:hover{--tw-bg-opacity:1;background-color:rgb(16 32 30/var(--tw-bg-opacity,1))}.hover\:bg-steam:hover{--tw-bg-opacity:1;background-color:rgb(244 239 228/var(--tw-bg-opacity,1))}.hover\:bg-steam\/\[\.11\]:hover{background-color:hsla(41,42%,93%,.11)}.hover\:text-jaggery:hover{--tw-text-opacity:1;color:rgb(230 169 60/var(--tw-text-opacity,1))}.hover\:text-steam:hover{--tw-text-opacity:1;color:rgb(244 239 228/var(--tw-text-opacity,1))}.focus\:not-sr-only:focus{position:static;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal}.focus\:fixed:focus{position:fixed}.focus\:left-4:focus{left:1rem}.focus\:top-4:focus{top:1rem}.focus\:z-\[100\]:focus{z-index:100}.focus\:rounded-full:focus{border-radius:9999px}.focus\:bg-jaggery:focus{--tw-bg-opacity:1;background-color:rgb(230 169 60/var(--tw-bg-opacity,1))}.focus\:px-5:focus{padding-left:1.25rem;padding-right:1.25rem}.focus\:py-3:focus{padding-top:.75rem;padding-bottom:.75rem}.focus\:text-sm:focus{font-size:.875rem;line-height:1.25rem}.focus\:font-semibold:focus{font-weight:600}.focus\:text-ink:focus{--tw-text-opacity:1;color:rgb(16 32 30/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:mt-12{margin-top:3rem}.sm\:mt-14{margin-top:3.5rem}.sm\:h-11{height:2.75rem}.sm\:h-36{height:9rem}.sm\:h-\[360px\]{height:360px}.sm\:w-11{width:2.75rem}.sm\:w-28{width:7rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:flex-wrap{flex-wrap:wrap}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:gap-4{gap:1rem}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:p-9{padding:2.25rem}.sm\:px-10{padding-left:2.5rem;padding-right:2.5rem}.sm\:px-5{padding-left:1.25rem;padding-right:1.25rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:px-9{padding-left:2.25rem;padding-right:2.25rem}.sm\:py-12{padding-top:3rem;padding-bottom:3rem}.sm\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:text-\[0\.875rem\]{font-size:.875rem}.sm\:text-\[0\.9375rem\]{font-size:.9375rem}.sm\:text-\[1\.125rem\]{font-size:1.125rem}.sm\:text-\[1\.3125rem\]{font-size:1.3125rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:1024px){.lg\:flex{display:flex}.lg\:hidden{display:none}.lg\:h-\[440px\]{height:440px}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\:grid-cols-\[1\.1fr\2c \.9fr\]{grid-template-columns:1.1fr .9fr}.lg\:grid-cols-\[1fr\2c \.9fr\]{grid-template-columns:1fr .9fr}.lg\:gap-14{gap:3.5rem}.lg\:py-24{padding-top:6rem;padding-bottom:6rem}}@media (min-width:1800px){.\33xl\:px-12{padding-left:3rem;padding-right:3rem}.\33xl\:px-14{padding-left:3.5rem;padding-right:3.5rem}.\33xl\:py-16{padding-top:4rem;padding-bottom:4rem}}/* tw:end */</style>
 
 <style>
   /* ---------------------------------------------------------------
@@ -68,7 +73,24 @@
      Tailwind owns every bit of layout, spacing and colour.
      --------------------------------------------------------------- */
   html { scroll-behavior: smooth; }
-  body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+  /* Type rendering ------------------------------------------------
+     Antialiasing thins strokes: it rescues light-on-dark and washes out
+     dark-on-light, and this page alternates between the two every
+     section. So it is asked for per surface, not on <body>.
+     `text-rendering: optimizeLegibility` is gone — it delays first paint
+     on low-end Android and only buys kerning and ligatures, which are
+     asked for directly here instead. */
+  body { font-kerning: normal; font-variant-ligatures: common-ligatures contextual; }
+  /* Fraunces is requested across opsz 9..144 and is the only reason to pay for a
+     variable font here: the face is redrawn heavier and wider as it shrinks and
+     finer as it grows. `auto` is the initial value, but it is declared because
+     losing it silently would cost exactly the thing the axis was bought for. */
+  .font-display { font-optical-sizing: auto; }
+  .bg-ink, .bg-enamel, .signboard, #drawer {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
   /* Fluid foundation --------------------------------------------
      Every size on the page is expressed in rem, so a single root-size
@@ -106,13 +128,48 @@
   a { text-underline-offset: .18em; text-decoration-thickness: from-font; }
 
   /* Focus ------------------------------------------------------- */
+  /* A single jaggery ring disappeared on the jaggery buttons, which are the
+     page's primary calls to action. Two bands — jaggery against the dark
+     ground, ink against the jaggery — are legible on every surface here.
+     No border-radius: the old rule set 6px on the focused element itself,
+     squaring off every pill it landed on. Outlines follow the element's own
+     radius, so there is nothing to declare. */
   a:focus-visible, button:focus-visible, input:focus-visible,
   textarea:focus-visible, select:focus-visible, summary:focus-visible,
   [tabindex]:focus-visible {
-    outline: 3px solid #E6A93C;
+    outline: 3px solid #10201E;
     outline-offset: 2px;
-    border-radius: 6px;
+    box-shadow: 0 0 0 5px #E6A93C;
   }
+
+  /* Press --------------------------------------------------------
+     Feedback belongs on pointer-down, not on release: a control that
+     shows nothing until the finger lifts reads as dead. Tailwind's
+     preflight already removes the tap highlight, so without this there
+     was no touch feedback anywhere on the page. The press is quicker
+     than the release, the way a real button is. */
+  .tap {
+    touch-action: manipulation;
+    transition: transform .16s cubic-bezier(.2,.7,.2,1),
+                background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .tap:active      { transform: scale(.97);  transition-duration: .06s; }
+  .tap-wide:active { transform: scale(.985); }
+
+  /* Tap targets --------------------------------------------------
+     Nav links were 17px of text in a wrapping list. 44px is the smallest
+     thing a thumb hits reliably; the bar does not grow, because the logo
+     beside them is already that tall. */
+  header nav a, footer nav a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+
+  /* The page is drawn edge to edge (viewport-fit=cover), so the fixed
+     chrome has to keep itself out of the notch and the home indicator. */
+  #siteNav, #drawer {
+    padding-top:   env(safe-area-inset-top);
+    padding-left:  env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  footer { padding-bottom: env(safe-area-inset-bottom); }
 
   .eyebrow { font-size: .6875rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
 
@@ -189,8 +246,17 @@
   .hero-glow--leaf { top: 14%;    left:  -17vw; background: rgba(62,107,74,.22); }
   .hero-glow--chai { bottom: -14%; right: -13vw; background: rgba(138,75,42,.26); }
 
-  .hero-title    { font-size: clamp(2.05rem, 1.4rem + 2.95vw, 4.5rem);  line-height: 1.02; letter-spacing: -.035em; text-wrap: balance; }
-  .hero-subtitle { font-size: clamp(1rem, .82rem + .88vw, 1.6rem);      line-height: 1.28; letter-spacing: -.015em; }
+  /* Tracking is size-specific, never one value for a range this wide. One
+     fixed value covered a title that runs from 33px on a phone to 72px and up:
+     too tight small, too loose large. This second ramp rides the first, from
+     about -.010em at the small end to -.025em at the large. It is in rem, so it
+     stays in step through the root-size ramp above.
+
+     The numbers are Fraunces numbers. A serif carries less air between letters
+     to begin with, so it needs perhaps half the negative tracking a tight
+     grotesque wants, and more leading, because its extenders are longer. */
+  .hero-title    { font-size: clamp(2.05rem, 1.4rem + 2.95vw, 4.5rem);  line-height: 1.06; letter-spacing: clamp(-.113rem, .001rem - .109vw, -.02rem); text-wrap: balance; }
+  .hero-subtitle { font-size: clamp(1rem, .82rem + .88vw, 1.6rem);      line-height: 1.3;  letter-spacing: -.008em; }
   .hero-lede     { font-size: clamp(.95rem, .9rem + .26vw, 1.15rem);    line-height: 1.62; max-width: 46ch; text-wrap: pretty; }
 
   /* Hero photograph ----------------------------------------------
@@ -228,7 +294,9 @@
 
   /* Marquee ----------------------------------------------------- */
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-track { display: flex; width: max-content; animation: marquee 34s linear infinite; }
+  .marquee-track { display: flex; width: max-content; will-change: transform; animation: marquee 34s linear infinite; }
+  /* An infinite animation that nobody can see is battery spent for nothing. */
+  .marquee-track.is-paused { animation-play-state: paused; }
 
   /* The only 3D on the page ------------------------------------- */
   .tilt { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s ease, background-color .35s ease; }
@@ -237,25 +305,97 @@
   }
 
   /* FAQ --------------------------------------------------------- */
-  details > summary { list-style: none; cursor: pointer; }
+  details > summary { list-style: none; cursor: pointer; touch-action: manipulation; transition: background-color .2s ease; }
   details > summary::-webkit-details-marker { display: none; }
   details > summary::marker { content: ""; }
+  details > summary:active { background: rgba(16,32,30,.05); transition-duration: .05s; }
   .faq-plus { transition: transform .25s ease; }
   details[open] .faq-plus { transform: rotate(45deg); }
+
+  /* An answer that appears in one frame is a jump, not a disclosure. Where the
+     browser can interpolate to a keyword height it opens continuously; where it
+     cannot, nothing here applies and the snap stays exactly as it was. */
+  @supports (interpolate-size: allow-keywords) and selector(details::details-content) {
+    :root { interpolate-size: allow-keywords; }
+    details::details-content {
+      block-size: 0;
+      overflow: clip;
+      transition: block-size .3s cubic-bezier(.2,.7,.2,1), content-visibility .3s allow-discrete;
+      transition-behavior: allow-discrete;
+    }
+    details[open]::details-content { block-size: auto; }
+  }
 
   /* Graceful image degradation ---------------------------------- */
   .img-frame { background: linear-gradient(140deg, #1B5563 0%, #123B45 55%, #10201E 100%); }
 
-  /* Scrolled nav ------------------------------------------------- */
+  /* Scrolled nav -------------------------------------------------
+     --nav-p is the first 120px of scroll, 0 to 1, written by the script at
+     the foot of the document. The bar used to switch state at 40px: the
+     background faded but the blur and the shadow arrived in one frame, so
+     the material popped. Interpolating all three together reads as glass
+     thickening as content slides under it. The filter is only mounted once
+     there is something to blur — an idle backdrop root costs a compositor
+     layer for no picture. */
+  #siteNav { --nav-p: 0; background: rgba(18,59,69,calc(.95 * var(--nav-p))); }
   #siteNav.nav-stuck {
-    background: rgba(18,59,69,.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 12px 34px -14px rgba(0,0,0,.6);
+    -webkit-backdrop-filter: blur(calc(12px * var(--nav-p))) saturate(calc(100% + 80% * var(--nav-p)));
+    backdrop-filter: blur(calc(12px * var(--nav-p))) saturate(calc(100% + 80% * var(--nav-p)));
+    box-shadow: 0 12px 34px -14px rgba(0,0,0,calc(.6 * var(--nav-p)));
   }
+
+  /* Mobile drawer ------------------------------------------------
+     The sheet was display:none toggled — it appeared and vanished in one
+     frame, from nowhere in particular. It now grows out of the button that
+     opened it and collapses back into the same point, so the way in and the
+     way out are one path. Scale and opacity move together so it reads as a
+     surface arriving. Reopening mid-close catches it where it is. */
+  #drawer {
+    transform-origin: calc(100% - 2.5rem) 2.5rem;
+    overscroll-behavior: contain;
+    transition: opacity .26s cubic-bezier(.2,.7,.2,1),
+                transform .26s cubic-bezier(.2,.7,.2,1);
+  }
+  #drawer[data-state="closed"] { opacity: 0; transform: scale(.97); pointer-events: none; }
+  #drawer[data-state="open"]   { opacity: 1; transform: scale(1); }
 
   /* Anchor targets clear the fixed nav --------------------------- */
   section[id], div[id] { scroll-margin-top: 5.5rem; }
+
+  /* Line breaking and figures -------------------------------------
+     Headings were held to a measure with max-width, which stops a line
+     running long but does nothing about the last line left holding one
+     word. `balance` evens them; `pretty` keeps orphans out of body copy.
+     Neither is supported everywhere, and where it is not, nothing changes.
+
+     Tabular figures where digits have to hold still: the two stats count
+     up from 40 and from 100, and with proportional figures every digit
+     that changed shifted the ones beside it. */
+  h2, h3 { text-wrap: balance; }
+  p      { text-wrap: pretty; }
+  [data-count], a[href^="tel:"], table td, table th { font-variant-numeric: tabular-nums; }
+
+  /* Devanagari carries matras above and below the line that Latin leading
+     does not allow for. */
+  .font-deva { line-height: 1.7; }
+
+  /* Reduced transparency ----------------------------------------
+     Frost the material rather than removing the bar it separates. */
+  @media (prefers-reduced-transparency: reduce) {
+    #siteNav { background: #123B45; }
+    #siteNav.nav-stuck { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  }
+
+  /* Increased contrast ------------------------------------------
+     Solid chrome, a heavier ring, and the quiet greys taken back to full
+     strength. The escaped selectors are Tailwind's own class names. */
+  @media (prefers-contrast: more) {
+    #siteNav { background: #0C2429; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline-width: 4px; }
+    .text-steam\/50, .text-steam\/55, .text-steam\/60, .text-steam\/70,
+    .text-steam\/75, .text-steam\/80, .text-steam\/85 { color: #F4EFE4; }
+    .text-ink\/65, .text-ink\/70, .text-ink\/75 { color: #10201E; }
+  }
 
   /* Reduced motion ---------------------------------------------- */
   @media (prefers-reduced-motion: reduce) {
@@ -267,6 +407,7 @@
       scroll-behavior: auto !important;
     }
     .marquee-track { animation: none !important; transform: none !important; }
+    #drawer[data-state="closed"] { transform: none; }
     .steam path { animation: none !important; opacity: .32; }
     .tilt:hover { transform: none !important; }
   }
@@ -479,17 +620,19 @@
 </head>
 <body class="bg-steam font-body text-ink">
 
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-jaggery focus:px-5 focus:py-3 focus:font-display focus:text-sm focus:font-extrabold focus:text-ink">Skip to content</a>
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-jaggery focus:px-5 focus:py-3 focus:text-sm focus:font-semibold focus:text-ink">Skip to content</a>
 
 <!-- ================= NAV ================= -->
-<header id="siteNav" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+<!-- No transition on the bar: the scroll position is the animation now, and a 300ms
+     colour transition on top of it made the background lag the blur it belongs to. -->
+<header id="siteNav" class="fixed inset-x-0 top-0 z-50">
   <div class="mx-auto max-w-shell px-5 sm:px-8">
     <nav aria-label="Primary" class="flex items-center justify-between gap-3 py-3">
       <a href="#top" class="flex shrink-0 items-center gap-3">
         <img src="./images/logo.jpeg" alt="Hyderabadi Amruttulya logo" width="999" height="999"
              class="h-10 w-10 rounded-full object-cover ring-2 ring-brass/70 sm:h-11 sm:w-11">
         <span class="font-display leading-[1.05]">
-          <span class="block text-[0.875rem] font-extrabold tracking-[-.02em] text-steam sm:text-[0.9375rem]">Hyderabadi</span>
+          <span class="block text-[0.875rem] font-extrabold tracking-[-.01em] text-steam sm:text-[0.9375rem]">Hyderabadi</span>
           <span class="eyebrow block text-jaggery">Amruttulya</span>
         </span>
       </a>
@@ -504,12 +647,12 @@
 
       <div class="flex items-center gap-2">
         <a href="tel:+919849998779"
-           class="inline-flex items-center gap-2 rounded-full bg-jaggery px-4 py-2.5 font-display text-[0.8125rem] font-extrabold tracking-[-.01em] text-ink transition-colors hover:bg-steam sm:px-5 sm:text-[0.875rem]">
+           class="tap whitespace-nowrap inline-flex items-center gap-2 rounded-full bg-jaggery px-4 py-2.5 text-[0.8125rem] font-semibold tracking-[-.01em] text-ink transition-colors hover:bg-steam sm:px-5 sm:text-[0.875rem]">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>Call us</span>
         </a>
         <button type="button" id="menuOpen" aria-expanded="false" aria-controls="drawer"
-                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-steam/30 text-steam transition-colors hover:border-jaggery hover:text-jaggery lg:hidden">
+                class="tap inline-flex h-10 w-10 items-center justify-center rounded-full border border-steam/30 text-steam transition-colors hover:border-jaggery hover:text-jaggery lg:hidden">
           <span class="sr-only">Open main menu</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
         </button>
@@ -519,7 +662,7 @@
 </header>
 
 <!-- ================= MOBILE DRAWER ================= -->
-<div id="drawer" class="fixed inset-0 z-[60] hidden bg-ink lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
+<div id="drawer" data-state="closed" class="fixed inset-0 z-[60] hidden bg-ink lg:hidden" role="dialog" aria-modal="true" aria-label="Site menu">
   <div class="mx-auto flex h-full max-w-shell flex-col px-5 py-3 sm:px-8">
     <div class="flex items-center justify-between">
       <span class="flex items-center gap-3">
@@ -530,14 +673,14 @@
         </span>
       </span>
       <button type="button" id="menuClose"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-steam/30 text-steam transition-colors hover:border-jaggery hover:text-jaggery">
+              class="tap inline-flex h-10 w-10 items-center justify-center rounded-full border border-steam/30 text-steam transition-colors hover:border-jaggery hover:text-jaggery">
         <span class="sr-only">Close menu</span>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
 
     <nav aria-label="Mobile" class="mt-10 flex-1">
-      <ul class="space-y-1 font-display text-[1.625rem] font-extrabold tracking-[-.03em] text-steam">
+      <ul class="space-y-1 text-[1.625rem] font-bold tracking-[-.02em] text-steam">
         <li><a href="#jaggery" class="drawer-link block border-b border-steam/10 py-4">Why jaggery</a></li>
         <li><a href="#mission" class="drawer-link block border-b border-steam/10 py-4">Mission</a></li>
         <li><a href="#franchise" class="drawer-link block border-b border-steam/10 py-4">Franchise</a></li>
@@ -547,8 +690,8 @@
     </nav>
 
     <div class="grid gap-3 pb-8 sm:grid-cols-2">
-      <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20" target="_blank" rel="noopener" class="drawer-link inline-flex items-center justify-center gap-2.5 rounded-full bg-jaggery px-6 py-3.5 font-display text-[0.9375rem] font-extrabold text-ink"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>Enquire about a franchise</a>
-      <a href="tel:+919849998779" class="inline-flex items-center justify-center rounded-full border border-steam/35 px-6 py-3.5 font-display text-[0.9375rem] font-extrabold text-steam">+91 98499 98779</a>
+      <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20" target="_blank" rel="noopener" class="tap whitespace-nowrap tap-wide drawer-link inline-flex items-center justify-center gap-2.5 rounded-full bg-jaggery px-6 py-3.5 text-[0.9375rem] font-semibold text-ink"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>Enquire about a franchise</a>
+      <a href="tel:+919849998779" class="tap whitespace-nowrap tap-wide inline-flex items-center justify-center rounded-full border border-steam/35 px-6 py-3.5 text-[0.9375rem] font-semibold text-steam">+91 98499 98779</a>
     </div>
   </div>
 </div>
@@ -589,26 +732,26 @@
       <!-- Three numbers, above the fold, in the order a crawler reads them. -->
       <dl class="mt-7 flex flex-wrap gap-x-7 gap-y-3">
         <div>
-          <dt class="text-[0.6875rem] font-bold uppercase tracking-[.16em] text-steam/50">To start</dt>
-          <dd class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-steam">&#8377;1L onwards</dd>
+          <dt class="text-[0.6875rem] font-bold uppercase tracking-[.16em] text-steam/70">To start</dt>
+          <dd class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-steam">&#8377;1L onwards</dd>
         </div>
         <div class="border-l border-steam/15 pl-7">
-          <dt class="text-[0.6875rem] font-bold uppercase tracking-[.16em] text-steam/50">Margin</dt>
-          <dd class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-steam">40% &ndash; 50%</dd>
+          <dt class="text-[0.6875rem] font-bold uppercase tracking-[.16em] text-steam/70">Margin</dt>
+          <dd class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-steam">40% &ndash; 50%</dd>
         </div>
         <div class="border-l border-steam/15 pl-7">
-          <dt class="text-[0.6875rem] font-bold uppercase tracking-[.16em] text-steam/50">Space</dt>
-          <dd class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-steam">100 &ndash; 200 sq ft</dd>
+          <dt class="text-[0.6875rem] font-bold uppercase tracking-[.16em] text-steam/70">Space</dt>
+          <dd class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-steam">100 &ndash; 200 sq ft</dd>
         </div>
       </dl>
 
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20" target="_blank" rel="noopener"
-           class="inline-flex items-center justify-center gap-2.5 rounded-full bg-jaggery px-6 py-3.5 font-display text-[0.9375rem] font-extrabold tracking-[-.01em] text-ink transition-colors hover:bg-steam">
+           class="tap whitespace-nowrap inline-flex items-center justify-center gap-2.5 rounded-full bg-jaggery px-5 py-3.5 text-[0.9375rem] font-semibold tracking-[-.01em] text-ink transition-colors hover:bg-steam">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
           Enquire about a franchise
         </a>
-        <a href="tel:+919849998779" class="inline-flex items-center justify-center gap-2 rounded-full border border-steam/35 px-6 py-3.5 font-display text-[0.9375rem] font-extrabold tracking-[-.01em] text-steam transition-colors hover:border-jaggery hover:text-jaggery">
+        <a href="tel:+919849998779" class="tap whitespace-nowrap inline-flex items-center justify-center gap-2 rounded-full border border-steam/35 px-5 py-3.5 text-[0.9375rem] font-semibold tracking-[-.01em] text-steam transition-colors hover:border-jaggery hover:text-jaggery">
           +91 98499 98779
         </a>
       </div>
@@ -651,7 +794,7 @@
 <!-- ================= MARQUEE ================= -->
 <div class="border-y-2 border-brass/70 bg-enamel py-3.5 overflow-hidden" aria-hidden="true">
   <div class="marquee-track">
-    <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-[0.8125rem] font-extrabold uppercase tracking-[.14em] text-steam/85 sm:text-[0.875rem]">
+    <div class="flex shrink-0 items-center gap-6 pr-6 text-[0.8125rem] font-bold uppercase tracking-[.14em] text-steam/85 sm:text-[0.875rem]">
       <span>From &#8377;1 lakh to start</span><span class="text-jaggery">&#10022;</span>
       <span>Jaggery, not refined sugar</span><span class="text-jaggery">&#10022;</span>
       <span>100% natural</span><span class="text-jaggery">&#10022;</span>
@@ -660,7 +803,7 @@
       <span>40%&ndash;50% profit margin</span><span class="text-jaggery">&#10022;</span>
       <span>100&ndash;200 sq ft</span><span class="text-jaggery">&#10022;</span>
     </div>
-    <div class="flex shrink-0 items-center gap-6 pr-6 font-display text-[0.8125rem] font-extrabold uppercase tracking-[.14em] text-steam/85 sm:text-[0.875rem]">
+    <div class="flex shrink-0 items-center gap-6 pr-6 text-[0.8125rem] font-bold uppercase tracking-[.14em] text-steam/85 sm:text-[0.875rem]">
       <span>From &#8377;1 lakh to start</span><span class="text-jaggery">&#10022;</span>
       <span>Jaggery, not refined sugar</span><span class="text-jaggery">&#10022;</span>
       <span>100% natural</span><span class="text-jaggery">&#10022;</span>
@@ -676,7 +819,7 @@
 <section id="jaggery" class="bg-steam py-16 sm:py-20 lg:py-24" aria-labelledby="jaggery-h">
   <div class="mx-auto max-w-shell px-5 sm:px-8">
     <p class="eyebrow text-chai">Why jaggery</p>
-    <h2 id="jaggery-h" class="mt-4 max-w-[20ch] font-display text-[clamp(1.75rem,5.4vw,3rem)] font-extrabold leading-[1.02] tracking-[-.03em] text-ink">
+    <h2 id="jaggery-h" class="mt-4 max-w-[20ch] font-display text-[clamp(1.75rem,5.4vw,3rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-ink">
       Every other chai stall reaches for the sugar jar.
     </h2>
     <p class="mt-5 max-w-[62ch] text-[0.9375rem] leading-relaxed text-ink/75 sm:text-base">
@@ -687,8 +830,8 @@
 
     <ol class="mt-10 grid gap-4 sm:mt-12 md:grid-cols-3">
       <li class="tilt rounded-2xl bg-ink p-7 ring-1 ring-ink/10">
-        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.04em] text-brass">01</span>
-        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.02em] text-steam">
+        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.02em] text-brass">01</span>
+        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.01em] text-steam">
           Unrefined by design
         </h3>
         <p class="mt-3 text-[0.9375rem] leading-relaxed text-steam/80">
@@ -697,16 +840,16 @@
         </p>
       </li>
       <li class="tilt rounded-2xl bg-ink p-7 ring-1 ring-ink/10">
-        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.04em] text-brass">02</span>
-        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.02em] text-steam">A deeper flavour</h3>
+        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.02em] text-brass">02</span>
+        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.01em] text-steam">A deeper flavour</h3>
         <p class="mt-3 text-[0.9375rem] leading-relaxed text-steam/80">
           Dark, faintly smoky, closer to molasses. It holds its own against ginger, cardamom and a long
           boil, where white sugar simply disappears into the milk.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-ink p-7 ring-1 ring-ink/10">
-        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.04em] text-brass">03</span>
-        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.02em] text-steam">A shorter supply chain</h3>
+        <span class="font-display text-[2.125rem] font-extrabold leading-none tracking-[-.02em] text-brass">03</span>
+        <h3 class="mt-4 font-display text-[1.1875rem] font-extrabold tracking-[-.01em] text-steam">A shorter supply chain</h3>
         <p class="mt-3 text-[0.9375rem] leading-relaxed text-steam/80">
           Raw, unprocessed produce from farmers in rural India working by traditional methods and
           age-old wisdom, bought at fair prices.
@@ -727,7 +870,7 @@
 
     <div>
       <p class="eyebrow text-jaggery">Our mission</p>
-      <h2 id="mission-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-steam">
+      <h2 id="mission-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-steam">
         Bridging the gap between urban and rural life
       </h2>
       <p class="mt-5 text-[0.9375rem] leading-relaxed text-steam/85 sm:text-base">
@@ -743,7 +886,7 @@
       </p>
 
       <blockquote class="mt-8 border-l-4 border-jaggery pl-5">
-        <p class="font-display text-[1.1875rem] font-semibold leading-snug tracking-[-.02em] text-steam sm:text-[1.3125rem]">
+        <p class="font-display text-[1.1875rem] font-semibold leading-snug tracking-[-.01em] text-steam sm:text-[1.3125rem]">
           &ldquo;Amruttulya&rdquo; means equal to nectar. That is the standard every pot is held to.
         </p>
       </blockquote>
@@ -755,7 +898,7 @@
 <section id="franchise" class="bg-ink py-16 sm:py-20 lg:py-24" aria-labelledby="franchise-h">
   <div class="mx-auto max-w-shell px-5 sm:px-8">
     <p class="eyebrow text-jaggery">The franchise</p>
-    <h2 id="franchise-h" class="mt-4 max-w-[24ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-steam">
+    <h2 id="franchise-h" class="mt-4 max-w-[24ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-steam">
       What an affordable chai franchise actually takes
     </h2>
     <p class="mt-5 max-w-[60ch] text-[0.9375rem] leading-relaxed text-steam/75 sm:text-base">
@@ -766,18 +909,18 @@
 
     <dl class="mt-10 grid gap-px overflow-hidden rounded-2xl bg-steam/20 sm:mt-12 sm:grid-cols-3">
       <div class="flex flex-col-reverse bg-ink p-7 sm:p-9">
-        <dt class="mt-3 font-display text-[0.9375rem] font-extrabold uppercase tracking-[.16em] text-steam/70">Profit margin</dt>
-        <dd class="font-display text-[clamp(2.2rem,8vw,3.1rem)] font-extrabold leading-none tracking-[-.04em] text-jaggery"
+        <dt class="mt-3 text-[0.9375rem] font-bold uppercase tracking-[.16em] text-steam/70">Profit margin</dt>
+        <dd class="font-display text-[clamp(2.2rem,8vw,3.1rem)] font-extrabold leading-none tracking-[-.02em] text-jaggery"
             data-count="50" data-from="40" data-prefix="40%&ndash;" data-suffix="%">40%&ndash;50%</dd>
       </div>
       <div class="flex flex-col-reverse bg-ink p-7 sm:p-9">
-        <dt class="mt-3 font-display text-[0.9375rem] font-extrabold uppercase tracking-[.16em] text-steam/70">Space required</dt>
-        <dd class="font-display text-[clamp(2.2rem,8vw,3.1rem)] font-extrabold leading-none tracking-[-.04em] text-jaggery"
+        <dt class="mt-3 text-[0.9375rem] font-bold uppercase tracking-[.16em] text-steam/70">Space required</dt>
+        <dd class="font-display text-[clamp(2.2rem,8vw,3.1rem)] font-extrabold leading-none tracking-[-.02em] text-jaggery"
             data-count="200" data-from="100" data-prefix="100&ndash;" data-suffix=" sq ft">100&ndash;200 sq ft</dd>
       </div>
       <div class="flex flex-col-reverse bg-ink p-7 sm:p-9">
-        <dt class="mt-3 font-display text-[0.9375rem] font-extrabold uppercase tracking-[.16em] text-steam/70">Franchise cost</dt>
-        <dd class="font-display text-[clamp(2rem,7vw,3.1rem)] font-extrabold leading-none tracking-[-.04em] text-jaggery">
+        <dt class="mt-3 text-[0.9375rem] font-bold uppercase tracking-[.16em] text-steam/70">Franchise cost</dt>
+        <dd class="font-display text-[clamp(2rem,7vw,3.1rem)] font-extrabold leading-none tracking-[-.02em] text-jaggery">
           &#8377;1L<span class="ml-2 text-[0.4em] font-extrabold tracking-[.01em] text-jaggery/70">onwards</span>
         </dd>
       </div>
@@ -794,7 +937,7 @@
          the Service/Offer JSON-LD at the foot of the document. -->
     <div class="mt-12 overflow-x-auto rounded-2xl ring-1 ring-steam/15 sm:mt-14">
       <table class="w-full min-w-[34rem] border-collapse text-left">
-        <caption class="px-6 pt-7 text-left font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam sm:px-8">
+        <caption class="px-6 pt-7 text-left font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam sm:px-8">
           The Hyderabadi Amruttulya chai franchise at a glance
         </caption>
         <tbody class="font-body text-[0.9375rem]">
@@ -839,34 +982,34 @@
 <section id="how" class="bg-steam py-16 sm:py-20 lg:py-24" aria-labelledby="how-h">
   <div class="mx-auto max-w-shell px-5 sm:px-8">
     <p class="eyebrow text-chai">How partnering works</p>
-    <h2 id="how-h" class="mt-4 max-w-[22ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-ink">
+    <h2 id="how-h" class="mt-4 max-w-[22ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-ink">
       From first call to first cup
     </h2>
 
     <ol class="mt-10 grid gap-px overflow-hidden rounded-2xl bg-ink/15 sm:mt-12 sm:grid-cols-2 lg:grid-cols-5">
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">01</span>
-        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Enquire</h3>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.02em] text-brass">01</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink">Enquire</h3>
         <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">WhatsApp us your name and city, or simply call.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">02</span>
-        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Discovery call</h3>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.02em] text-brass">02</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink">Discovery call</h3>
         <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">We talk through costs, the model and what you are looking for.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">03</span>
-        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Site assessment</h3>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.02em] text-brass">03</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink">Site assessment</h3>
         <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">We look at the space you have in mind. An outlet needs 100&ndash;200 sq ft.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">04</span>
-        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Agreement &amp; setup</h3>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.02em] text-brass">04</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink">Agreement &amp; setup</h3>
         <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">The agreement is signed and your outlet is set up.</p>
       </li>
       <li class="bg-steam p-6 sm:p-7">
-        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.04em] text-brass">05</span>
-        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink">Training &amp; launch</h3>
+        <span class="font-display text-[1.75rem] font-extrabold leading-none tracking-[-.02em] text-brass">05</span>
+        <h3 class="mt-3 font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink">Training &amp; launch</h3>
         <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/70">Training first, then your doors open.</p>
       </li>
     </ol>
@@ -877,7 +1020,7 @@
 <section id="values" class="bg-enamel py-16 sm:py-20 lg:py-24" aria-labelledby="values-h">
   <div class="mx-auto max-w-shell px-5 sm:px-8">
     <p class="eyebrow text-jaggery">Our values</p>
-    <h2 id="values-h" class="mt-4 max-w-[26ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-steam">
+    <h2 id="values-h" class="mt-4 max-w-[26ch] font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-steam">
       Rooted in health, farmers and a sustainable environment
     </h2>
     <p class="mt-5 max-w-[62ch] text-[0.9375rem] leading-relaxed text-steam/80 sm:text-base">
@@ -887,39 +1030,39 @@
 
     <ul class="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Health and wellness</h3>
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam">Health and wellness</h3>
         <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We offer 100% natural products, and bring you the purest ingredients we can source.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Empowering farmers</h3>
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam">Empowering farmers</h3>
         <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We value our farmers and their traditional knowledge, paying fair prices for their produce and
           supporting sustainable practices.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Sustainability</h3>
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam">Sustainability</h3>
         <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           From sourcing to packaging, we work to minimise our environmental impact.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Community and collaboration</h3>
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam">Community and collaboration</h3>
         <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We work closely with local communities to support their development and promote a sense of
           belonging.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Transparency and integrity</h3>
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam">Transparency and integrity</h3>
         <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           Honesty and openness in every dealing, from sourcing through to customer service.
         </p>
       </li>
       <li class="tilt rounded-2xl bg-steam/[.07] p-7 ring-1 ring-steam/15 hover:bg-steam/[.11]">
-        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.02em] text-steam">Innovation and excellence</h3>
+        <h3 class="font-display text-[1.125rem] font-extrabold tracking-[-.01em] text-steam">Innovation and excellence</h3>
         <p class="mt-3 text-[0.90625rem] leading-relaxed text-steam/80">
           We keep improving our products and processes, and keep looking for better ways to work.
         </p>
@@ -935,7 +1078,7 @@
       <p class="eyebrow text-chai">What you would serve</p>
       <!-- Items only. Counter prices are deliberately not published: they are set per outlet
            before opening, which the panel opposite says in words. -->
-      <h2 id="menu-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-ink">
+      <h2 id="menu-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-ink">
         The counter, roughly
       </h2>
 
@@ -952,7 +1095,7 @@
     <div class="rounded-2xl bg-enamel px-7 py-10 text-center sm:px-9 sm:py-14">
       <span class="mx-auto block h-0.5 w-12 bg-brass" aria-hidden="true"></span>
       <p class="eyebrow mt-6 text-jaggery">On every board</p>
-      <p class="mt-4 font-display text-[clamp(1.35rem,4.4vw,1.95rem)] font-extrabold leading-[1.15] tracking-[-.03em] text-steam">
+      <p class="mt-4 font-display text-[clamp(1.35rem,4.4vw,1.95rem)] font-extrabold leading-[1.22] tracking-[-.015em] text-steam">
         Chai &middot; Coffee<br>Snacks &middot; Shakes
       </p>
       <p class="mx-auto mt-5 max-w-[34ch] text-[0.875rem] leading-relaxed text-steam/70">
@@ -967,14 +1110,14 @@
 <section id="faq" class="bg-steam py-16 sm:py-20 lg:py-24" aria-labelledby="faq-h">
   <div class="mx-auto max-w-[820px] px-5 sm:px-8">
     <p class="eyebrow text-chai">Franchise FAQ</p>
-    <h2 id="faq-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.04] tracking-[-.03em] text-ink">
+    <h2 id="faq-h" class="mt-4 font-display text-[clamp(1.65rem,5vw,2.6rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-ink">
       Questions people ask before they call
     </h2>
 
     <div class="mt-10 divide-y divide-ink/10 border-y border-ink/10">
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             How much does a Hyderabadi Amruttulya chai franchise cost?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -988,7 +1131,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Is there a chai franchise under 2 lakhs in India?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1002,7 +1145,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             What makes this an affordable chai franchise?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1016,7 +1159,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Is a chai franchise profitable?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1030,7 +1173,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Do I need experience running a food business?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1044,7 +1187,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             How long does it take to open an outlet?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1058,7 +1201,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Can I open a Hyderabadi Amruttulya outlet in Hyderabad?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1072,7 +1215,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Do I get an exclusive territory?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1086,7 +1229,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             What is Amruttulya chai?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1100,7 +1243,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Why jaggery instead of refined sugar?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1114,7 +1257,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             Where do the tea and jaggery come from?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1128,7 +1271,7 @@
 
       <details class="group py-1">
         <summary class="flex items-center justify-between gap-4 py-5">
-          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.02em] text-ink sm:text-[1.125rem]">
+          <h3 class="font-display text-[1.0625rem] font-extrabold tracking-[-.01em] text-ink sm:text-[1.125rem]">
             What ongoing support do franchise partners get?
           </h3>
           <span class="faq-plus shrink-0 text-brass" aria-hidden="true">
@@ -1149,7 +1292,7 @@
 
     <div>
       <p class="eyebrow text-jaggery">Franchise enquiry</p>
-      <h2 id="enquiry-h" class="mt-4 max-w-[20ch] font-display text-[clamp(1.75rem,5.4vw,2.8rem)] font-extrabold leading-[1.03] tracking-[-.03em] text-steam">
+      <h2 id="enquiry-h" class="mt-4 max-w-[20ch] font-display text-[clamp(1.75rem,5.4vw,2.8rem)] font-extrabold leading-[1.08] tracking-[-.015em] text-steam">
         Let&rsquo;s talk about your outlet
       </h2>
       <p class="mt-5 max-w-[52ch] text-[0.9375rem] leading-relaxed text-steam/80 sm:text-base">
@@ -1175,30 +1318,30 @@
     </div>
 
     <div class="rounded-2xl bg-steam p-6 ring-1 ring-ink/10 sm:p-8">
-      <h3 class="font-display text-[1.25rem] font-extrabold tracking-[-.02em] text-ink">Message us now</h3>
+      <h3 class="font-display text-[1.25rem] font-extrabold tracking-[-.01em] text-ink">Message us now</h3>
       <p class="mt-2 text-[0.875rem] leading-relaxed text-ink/65">
         Opens WhatsApp with the message already written. Add your city and send it.
       </p>
 
       <a href="https://wa.me/919849998779?text=Hi%20Hyderabadi%20Amruttulya%2C%20I%27d%20like%20to%20know%20more%20about%20opening%20a%20chai%20franchise.%20My%20city%20is%3A%20"
          target="_blank" rel="noopener"
-         class="mt-6 flex w-full items-center justify-center gap-3 rounded-full bg-leaf px-6 py-4 font-display text-[1rem] font-extrabold tracking-[-.01em] text-steam transition-colors hover:bg-ink">
+         class="tap tap-wide mt-6 flex w-full items-center justify-center gap-3 rounded-full bg-leaf px-6 py-4 text-[1rem] font-semibold tracking-[-.01em] text-steam transition-colors hover:bg-ink">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
         Enquire on WhatsApp
       </a>
 
       <div class="my-6 flex items-center gap-4">
         <span class="h-px flex-1 bg-ink/15" aria-hidden="true"></span>
-        <span class="text-[0.6875rem] font-bold uppercase tracking-[.2em] text-ink/45">or</span>
+        <span class="text-[0.6875rem] font-bold uppercase tracking-[.2em] text-ink/65">or</span>
         <span class="h-px flex-1 bg-ink/15" aria-hidden="true"></span>
       </div>
 
       <a href="tel:+919849998779"
-         class="flex w-full items-center justify-center gap-3 rounded-full border border-ink/25 px-6 py-4 font-display text-[1rem] font-extrabold tracking-[-.01em] text-ink transition-colors hover:border-enamel hover:bg-enamel hover:text-steam">
+         class="tap tap-wide flex w-full items-center justify-center gap-3 rounded-full border border-ink/25 px-6 py-4 text-[1rem] font-semibold tracking-[-.01em] text-ink transition-colors hover:border-enamel hover:bg-enamel hover:text-steam">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         +91 98499 98779
       </a>
-      <p class="mt-4 text-center text-[0.78125rem] text-ink/55">We answer.</p>
+      <p class="mt-4 text-center text-[0.78125rem] text-ink/65">We answer.</p>
     </div>
   </div>
 </section>
@@ -1212,7 +1355,7 @@
         <img src="./images/logo.jpeg" alt="Hyderabadi Amruttulya logo" width="999" height="999" loading="lazy"
              class="h-11 w-11 rounded-full object-cover ring-2 ring-brass/70">
         <span class="font-display leading-[1.05]">
-          <span class="block text-[0.9375rem] font-extrabold tracking-[-.02em] text-steam">Hyderabadi</span>
+          <span class="block text-[0.9375rem] font-extrabold tracking-[-.01em] text-steam">Hyderabadi</span>
           <span class="eyebrow block text-jaggery">Amruttulya</span>
         </span>
       </a>
@@ -1228,7 +1371,7 @@
         </ul>
       </nav>
 
-      <a href="tel:+919849998779" class="font-display text-[1.25rem] font-extrabold tracking-[-.02em] text-jaggery">+91 98499 98779</a>
+      <a href="tel:+919849998779" class="font-display text-[1.25rem] font-extrabold tracking-[-.01em] text-jaggery">+91 98499 98779</a>
     </div>
 
     <!-- The previous site linked Facebook, Instagram, X, GitHub and YouTube icons to "#", so those
@@ -1367,14 +1510,27 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- sticky nav state ---------- */
+  /* ---------- sticky nav state ----------
+     The bar used to switch at 40px, which arrived as one frame of glass.
+     --nav-p is the first 120px of scroll as 0..1; the stylesheet
+     interpolates background, blur and shadow off it together, so the
+     material thickens as content slides under it. Written inside rAF so a
+     fast scroll cannot queue more style writes than there are frames. */
   var nav = document.getElementById('siteNav');
+  var navQueued = false;
   function syncNav() {
-    if (window.scrollY > 40) { nav.classList.add('nav-stuck'); }
-    else { nav.classList.remove('nav-stuck'); }
+    navQueued = false;
+    var p = Math.min(window.scrollY / 120, 1);
+    nav.style.setProperty('--nav-p', p.toFixed(3));
+    nav.classList.toggle('nav-stuck', p > 0);
+  }
+  function queueNav() {
+    if (navQueued) { return; }
+    navQueued = true;
+    requestAnimationFrame(syncNav);
   }
   syncNav();
-  window.addEventListener('scroll', syncNav, { passive: true });
+  window.addEventListener('scroll', queueNav, { passive: true });
 
   /* ---------- mobile drawer: focus trap, Escape, scroll lock ---------- */
   var drawer   = document.getElementById('drawer');
@@ -1388,20 +1544,36 @@
       return el.offsetWidth > 0 || el.offsetHeight > 0;
     });
   }
+  var hideTimer = null;
+
   function openDrawer() {
     lastFocused = document.activeElement;
+    if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
     drawer.classList.remove('hidden');
+    drawer.inert = false;
+    /* Read a layout value back so the closed state gets a frame of its own to
+       animate from; without it both states land in the same frame and the
+       sheet appears rather than opens. */
+    void drawer.offsetHeight;
+    drawer.setAttribute('data-state', 'open');
     document.body.style.overflow = 'hidden';
     openBtn.setAttribute('aria-expanded', 'true');
     var f = drawerFocusables();
     if (f.length) { f[0].focus(); }
   }
   function closeDrawer() {
-    if (drawer.classList.contains('hidden')) { return; }
-    drawer.classList.add('hidden');
+    if (drawer.getAttribute('data-state') !== 'open') { return; }
+    drawer.setAttribute('data-state', 'closed');
+    drawer.inert = true;
     document.body.style.overflow = '';
     openBtn.setAttribute('aria-expanded', 'false');
     if (lastFocused && typeof lastFocused.focus === 'function') { lastFocused.focus(); }
+    /* display:none only once it has finished leaving, so the exit is visible.
+       Reopening before then clears this and picks the sheet up where it is. */
+    hideTimer = setTimeout(function () {
+      hideTimer = null;
+      if (drawer.getAttribute('data-state') === 'closed') { drawer.classList.add('hidden'); }
+    }, reduceMotion ? 0 : 300);
   }
   openBtn.addEventListener('click', openDrawer);
   closeBtn.addEventListener('click', closeDrawer);
@@ -1409,7 +1581,7 @@
     link.addEventListener('click', closeDrawer);
   });
   document.addEventListener('keydown', function (e) {
-    if (drawer.classList.contains('hidden')) { return; }
+    if (drawer.getAttribute('data-state') !== 'open') { return; }
     if (e.key === 'Escape' || e.key === 'Esc') { closeDrawer(); return; }
     if (e.key !== 'Tab') { return; }
     var f = drawerFocusables();
@@ -1447,6 +1619,16 @@
       });
     }, { threshold: 0.5 });
     Array.prototype.forEach.call(counters, function (el) { io.observe(el); });
+  }
+
+  /* ---------- marquee ----------
+     34 seconds of infinite transform is cheap, but not while nobody can see
+     it. Pause it whenever the strip leaves the viewport. */
+  var track = document.querySelector('.marquee-track');
+  if (track && track.parentNode && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      track.classList.toggle('is-paused', !entries[0].isIntersecting);
+    }).observe(track.parentNode);
   }
 
   /* ---------- footer year ---------- */

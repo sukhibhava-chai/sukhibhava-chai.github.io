@@ -12,7 +12,7 @@ you only run the one whose input you touched:
 | Any Tailwind class in `index.html` | `python3 build/build-css.py` |
 | An FAQ question or answer | `python3 build/make-faq.py` |
 | Any page copy at all | `python3 build/make-llms-full.py` |
-| The tagline or the price on the social card | `python3 build/make-og-card.py` |
+| The tagline, the price, or a typeface on the social card | `python3 build/make-og-card.py` |
 
 `build/build-css.py` needs `npx`; the other three need Python, and the card also needs
 Pillow. Commit whatever they rewrite.
@@ -212,7 +212,120 @@ EOF
 Nothing on the page states an outlet count, location list, founding year, award or testimonial,
 because none of those are confirmed.
 
-## 5. Notes on the old site
+## 5. Typography
+
+Two families do the work, and the split between them is the rule to keep:
+
+| | Face | Where |
+|---|---|---|
+| Voice | **Fraunces** (variable, `opsz 9..144`, `wght 400..900`) | h1, every h2 and h3, the blockquote, the big numerals and stats, the table caption, the menu list, the wordmark, the footer number |
+| Interface | **Inter** (variable, `wght 400..700`) | all body copy, every button and pill, both navigations, the marquee, the tracked uppercase labels and eyebrows |
+| Devanagari | **Noto Sans Devanagari** 500 | the one word `अमृततुल्य` in the signboard |
+
+**A button is interface, not voice.** Controls, navigation and tracked uppercase
+labels stay in Inter: a tracked uppercase serif at 13px is a reading problem, and
+a serif on a pill reads as fussy rather than warm. If you add a control, do not
+give it `font-display`.
+
+Inter is requested at `400..700`, so **`font-extrabold` (800) has no weight behind
+it on interface elements** — use `font-semibold` on controls and `font-bold` on
+the caps labels. Fraunces is requested at `400..900`, so `font-extrabold` is fine
+on headings.
+
+Three things follow from Fraunces being a serif, and all three are already set:
+
+- **Tracking is roughly half what a grotesque wants.** A serif carries less air
+  between letters to begin with. The scale on the page is `-.01em` on small
+  display text, `-.015em` on section headings, `-.02em` on the big numerals.
+  The hero has its own ramp — see below.
+- **Leading is looser.** Headings sit at `1.08`, not `1.02`; the menu board at
+  `1.22`. Fraunces has long extenders and 1.02 collides.
+- **The fallback is a serif** (`Georgia`). A fallback must match the class of the
+  face it stands in for or the swap is a visible jump in metrics and x-height.
+  Georgia was previously the fallback for a *grotesque*, which is the same
+  mistake in reverse.
+
+`font-optical-sizing: auto` is declared on `.font-display`. It is the initial
+value, so it looks redundant — it is there because the `opsz 9..144` axis is the
+only reason to pay for a variable font here, and losing it silently would cost
+exactly the thing it was bought for.
+
+### Tracking is a function of size
+
+`.hero-title` runs from 33px on a 320px phone to 72px and beyond. One
+`letter-spacing` is wrong at one end of a range that wide, so a second clamp
+rides the size clamp:
+
+```css
+font-size:      clamp(2.05rem, 1.4rem + 2.95vw, 4.5rem);
+letter-spacing: clamp(-.113rem, .001rem - .109vw, -.02rem);   /* -.010em -> -.025em */
+```
+
+Both are in `rem`, so the ratio survives the root-size ramp in §2. If you change
+the size clamp, recompute the tracking clamp against it — measure the em ratio at
+each end, do not eyeball a px value.
+
+### If you change a typeface again
+
+1. `tailwind.config.js` — `fontFamily.display` / `.body`, **and the fallbacks**.
+2. The Google Fonts `<link>` in the head. Ask for variable ranges, not a list of
+   named weights: one file covers every weight the page uses.
+3. Re-check the tracking and leading scale above. Values cut for one face are
+   wrong for another — this is the step that gets skipped.
+4. `build/make-og-card.py` draws the social card in the same two faces and caches
+   a static instance of each in `build/.fonts/`. Delete the cached `.ttf` and
+   re-run it.
+5. `python3 build/build-css.py`.
+6. Check the pills. Inter sets wider than the grotesque it replaced and the hero
+   pair stopped fitting the signboard column by half a pixel. They carry
+   `whitespace-nowrap` so a label can never break mid-phrase, and the row is
+   `sm:flex-wrap` so it stacks instead.
+
+## 6. Interaction
+
+Everything here follows from one idea: an interface feels direct when it responds
+on press, moves continuously, and can be caught mid-motion.
+
+- **`.tap` / `.tap-wide`** — press feedback on every control. Tailwind's preflight
+  removes the tap highlight, so before this there was *no* touch feedback anywhere
+  on the page. The press (60ms) is quicker than the release (160ms), the way a
+  real button is. `.tap-wide` scales less, because a full-width button travelling
+  3% is a lot of movement. Put `.tap` on any control you add.
+- **The nav is a material, not a switch.** The script writes `--nav-p` — the first
+  120px of scroll as 0..1 — and the stylesheet interpolates background, blur and
+  shadow off it together. It used to flip a class at 40px, so the background faded
+  while the blur and shadow arrived in a single frame. The header carries **no**
+  CSS transition on purpose: the scroll position *is* the animation, and a
+  transition on top of it makes the background lag the blur it belongs to.
+  `backdrop-filter` is only mounted once `--nav-p > 0`; an idle backdrop root
+  costs a compositor layer for no picture.
+- **The drawer** grows out of the button that opened it and collapses back to the
+  same point, so the way in and the way out are one path. It is driven by
+  `data-state`, not by `.hidden` — `.hidden` is added only once the exit finishes,
+  and reopening before then cancels it and catches the sheet where it is. `inert`
+  keeps the closing sheet out of the tab order.
+- **The FAQ** interpolates open where the browser supports `interpolate-size` and
+  `::details-content`, and snaps exactly as before where it does not. The whole
+  block is inside one `@supports`.
+- **The marquee pauses** whenever the strip leaves the viewport.
+- **Focus** is a two-band ring: ink outline, jaggery box-shadow. A single jaggery
+  ring vanished on the jaggery buttons, which are the primary calls to action. The
+  old rule also set `border-radius: 6px` on the focused element, which squared off
+  every pill it landed on — outlines follow the element's own radius, so nothing
+  is declared.
+- **Reduced motion, reduced transparency and increased contrast** are all handled
+  separately. Reduced motion is not "no feedback" — the drawer still fades, it
+  just does not travel.
+
+Numbers that have to hold still carry `font-variant-numeric: tabular-nums`: the
+two counters run up from 40 and from 100, and with proportional figures every
+digit that changed shifted the ones beside it.
+
+Antialiasing is asked for **per surface**, not on `<body>`. It thins strokes,
+which rescues light-on-dark and washes out dark-on-light, and this page alternates
+between the two every section.
+
+## 7. Notes on the old site
 
 - `images/chai-3.jpeg` was captioned "tea plantation" on the old site; it is actually an outlet
   opening. All `alt` text now matches what is really in each photo.

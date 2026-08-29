@@ -38,8 +38,12 @@ module.exports = {
         chai:     '#8A4B2A'
       },
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'Georgia', 'system-ui', 'sans-serif'],
-        body:    ['Karla', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        /* A fallback has to be the same class as the face it stands in for,
+           or the swap is a visible jump in x-height and metrics. Fraunces is
+           an old-style serif, so the fallback is a serif; Inter is a neutral
+           sans, so the fallback is the platform's own. */
+        display: ['Fraunces', 'Georgia', '"Times New Roman"', 'serif'],
+        body:    ['Inter', 'system-ui', '-apple-system', '"Segoe UI"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
         deva:    ['"Noto Sans Devanagari"', 'system-ui', 'sans-serif']
       },
       /* The shell is a CSS variable so one media-query-free clamp can widen
